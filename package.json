@@ -1,0 +1,49 @@
+{
+  "name": "@alwkala/tidyfactor-doc",
+  "version": "1.0.0",
+  "description": "TidyFactor Doc \u2014 Code Documentation Builder & Docsify Architecture Engine for AI Coding Agents",
+  "main": "bin/add-skill.js",
+  "bin": {
+    "tidyfactor-doc": "bin/add-skill.js",
+    "add-doc-skill": "bin/add-skill.js"
+  },
+  "scripts": {
+    "validate": "python tools/validate_skill.py"
+  },
+  "keywords": [
+    "tidyfactor",
+    "docs",
+    "docsify",
+    "ai-agents",
+    "antigravity",
+    "claude-code",
+    "cursor",
+    "documentation-generator"
+  ],
+  "author": "TidyFactor & Alwkala <hello@tidyfactor.com> (https://alwkala.com)",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TidyFactor/Doc.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "SKILL.md",
+    "references",
+    "memory",
+    "templates",
+    "scripts",
+    "tools",
+    "assets",
+    "bin",
+    "brand.json",
+    ".tidyfactor",
+    "AGENTS.md",
+    "README.md",
+    "README.ar.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ]
+}

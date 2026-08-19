@@ -1,0 +1,16 @@
+{
+  "name": "tidyfactor-doc",
+  "version": "1.0.0",
+  "category": "architecture",
+  "description": "TidyFactor Doc - Code Documentation Builder & Docsify Engine",
+  "repository": "https://github.com/TidyFactor/Doc",
+  "npm": "@alwkala/tidyfactor-doc",
+  "compatibility": [
+    "antigravity",
+    "claude-code",
+    "cursor",
+    "codex",
+    "windsurf"
+  ],
+  "license": "Apache-2.0"
+}
