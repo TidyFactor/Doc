@@ -1,0 +1,9 @@
+{
+  "project": "@alwkala/tidyfactor-doc",
+  "stacks": [
+    "js",
+    "python"
+  ],
+  "collected": {},
+  "generated": {}
+}
