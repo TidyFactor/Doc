@@ -31,7 +31,7 @@ The five dimensions `collect` runs against a target, and exactly what to pull fr
 - Every thrown exception / returned error code / rejected promise in the target, with the condition that triggers it.
 - How each error is meant to be handled or surfaced (caught and logged? bubbled to caller? shown to end-user?) — from code and any logging statements found.
 - Common failure modes mentioned in commit history or TODO comments that aren't yet reflected in actual error handling.
-- **Scrubbing Rule**: Redact real database connection strings, local absolute file paths (e.g. `C:\Users\...`), or authorization headers that might appear in error logs or exception messages.
+- **Scrubbing Rule**: Redact real database connection strings, local absolute file paths (e.g. `/home/user/project/...`), or authorization headers that might appear in error logs or exception messages.
 
 ---
 
@@ -42,6 +42,6 @@ The five dimensions `collect` runs against a target, and exactly what to pull fr
 | API Keys / Tokens | `sk_live_948f98a7c...` | `YOUR_API_KEY_HERE` or `EXAMPLE_TOKEN_123` |
 | Passwords / DB Secrets | `P@ssw0rd2026!` | `your_secure_password` |
 | Server IPs | `192.168.1.15`, `45.33.21.99` | `203.0.113.1` (RFC 5737 doc range) |
-| Local Drive Paths | `file:///C:/wamp64/www/...` | `./docs/guides/` or `project-root/` |
+| Local Drive Paths | `file:///C:/path/to/project/...` | `./docs/guides/` or `project-root/` |
 | Local Workstation URLs | `http://localhost:8080/secret` | `https://api.example.com` or `http://localhost:PORT` |
-| User Home Dirs | `C:\Users\username\...` | `~/project` or `/path/to/project` |
+| User Home Dirs | `/home/developer/workspace/...` | `~/project` or `/path/to/project` |

@@ -80,9 +80,9 @@ In modern AI agent workflows, sensitive credentials and private configurations f
 | **API Tokens & Secret Keys** | `sk_live_948f98a7c1b2...` | `EXAMPLE_TOKEN_1234567890ABCDEFGH` or `YOUR_API_KEY` |
 | **Passwords & DB Credentials** | `RootP@ssw0rd2026!` | `your_secret_password` |
 | **Server & Host IPs** | `192.168.1.50`, `45.33.21.99` | `203.0.113.1` (RFC 5737 documentation prefix) |
-| **Workstation File URIs** | `file:///C:/wamp64/www/...` | `./docs/guides/` or `project-root/` |
+| **Workstation File URIs** | `file:///C:/path/to/project/...` | `./docs/guides/` or `project-root/` |
 | **Internal Development URLs** | `http://localhost:8080/admin` | `https://api.example.com` or `http://localhost:PORT` |
-| **User Home Directories** | `C:\Users\username\...` | `~/project` or `/path/to/project` |
+| **User Home Directories** | `/home/developer/workspace/...` | `~/project` or `/path/to/project` |
 
 ---
 

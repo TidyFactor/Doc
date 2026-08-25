@@ -10,7 +10,7 @@ One outcome: source files in the target with inline documentation comments added
 4. **Do not touch private/internal implementation details** that don't need a doc comment per the stack convention — inline documentation targets the public surface, not every line.
 5. **Update `docs/.doc-manifest.json`**'s `generated` section, listing the files touched (not a `/docs` file, but still tracked for audit purposes).
 
-## Validation
+## Validation checklist
 
 - [ ] Every added/updated comment follows the target stack's exact convention (tag names, block format)
 - [ ] No comment content is invented — parameters, return types, and error conditions match the actual code and the findings

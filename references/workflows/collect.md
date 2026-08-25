@@ -15,7 +15,7 @@ Run all five collection dimensions from `memory/collection-sources.md` against t
 6. **Write the findings** to `docs/.collected/<target>.md` as plain structured notes under five headings matching the dimensions above — this is source material for `generate`, not a finished doc, so skip prose polish.
 7. **Update `docs/.doc-manifest.json`**: add `<target>` to the `collected` section with a timestamp.
 
-## Validation
+## Validation checklist
 
 - [ ] `docs/.collected/<target>.md` exists and has content (or an explicit "not applicable" note) under all five dimension headings
 - [ ] Every fact traces to something actually found in the code, history, config, or logs — nothing inferred or assumed

@@ -10,7 +10,7 @@ One outcome: an API reference file under `docs/api/` for one target, built from 
 4. **Cross-link**: if the target has related targets already documented, add clean relative "See also" links between them (e.g. `[Other API](./other.md)`). Never use `file:///` or local drive paths.
 5. **Update `docs/.doc-manifest.json`**'s `generated` section with the new file and timestamp.
 
-## Validation
+## Validation checklist
 
 - [ ] `docs/api/<target>.md` exists and follows the API-reference shape in `memory/doc-templates.md`
 - [ ] Every documented signature matches what `collect` actually found — no invented parameters or return types

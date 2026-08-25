@@ -9,7 +9,7 @@ One outcome: `/docs` is browsable as a Docsify site — an `index.html` entry po
 3. **Optionally write `docs/_coverpage.md`** if the user wants a landing/cover page — only if asked, per `docsify-config.md`'s note that the coverpage is opt-in, not default.
 4. **Report how to preview it** (local static server command from `docsify-config.md`) and note the deploy targets listed there (GitHub Pages / Netlify / Cloudflare Pages / cPanel static hosting) without picking one — that's the user's call.
 
-## Validation
+## Validation checklist
 
 - [ ] `docs/index.html` exists and matches the template/plugin list in `memory/docsify-config.md`
 - [ ] `docs/_sidebar.md` lists every current doc under `/docs`, correctly grouped, and excludes `.doc-manifest.json`/`.collected/`

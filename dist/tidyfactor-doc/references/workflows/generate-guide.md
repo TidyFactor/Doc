@@ -10,7 +10,7 @@ One outcome: a single technical guide file under `docs/guides/`, built from `doc
 4. **Write `docs/guides/<purpose-slug>.md`**, prioritizing facts for the persona that reads this kind of guide (per persona-tracing findings — usually an internal maintainer or a new contributor, not an external API consumer). Ensure all configuration code blocks, commands, IPs, and tokens use safe placeholders. Use clean relative links for cross-references.
 5. **Update `docs/.doc-manifest.json`**'s `generated` section.
 
-## Validation
+## Validation checklist
 
 - [ ] The guide covers exactly one purpose — no bundled setup+architecture+workflow content in one file
 - [ ] `docs/guides/<purpose-slug>.md` exists and follows the shape in `memory/doc-templates.md`

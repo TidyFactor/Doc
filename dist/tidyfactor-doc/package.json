@@ -1,20 +1,18 @@
 {
   "name": "@alwkala/tidyfactor-doc",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "TidyFactor Doc — Code Documentation Builder & Dual-Engine Publishing Platform (MkDocs Material & Docsify) for AI Coding Agents",
-  "main": "bin/add-skill.js",
+  "main": "SKILL.md",
   "bin": {
     "tidyfactor-doc": "bin/add-skill.js",
+    "add-skill": "bin/add-skill.js",
     "add-doc-skill": "bin/add-skill.js"
-  },
-  "scripts": {
-    "validate": "python tools/validate_skill.py",
-    "build": "node tools/build-skill.js"
   },
   "keywords": [
     "tidyfactor",
     "docs",
     "docsify",
+    "mkdocs",
     "ai-agents",
     "antigravity",
     "claude-code",
@@ -26,6 +24,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TidyFactor/Doc.git"
+  },
+  "scripts": {
+    "validate": "python tools/validate_skill.py",
+    "build": "node tools/build-skill.js",
+    "release": "python ../tools/release_skill.py ."
   },
   "publishConfig": {
     "access": "public"

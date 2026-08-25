@@ -10,7 +10,7 @@ One outcome: a project-root `README.md`, built from `docs/.collected/<target>.md
 4. **If a `README.md` already exists**, show a diff-style summary of what would change rather than overwriting silently, and confirm before replacing it.
 5. **Update `docs/.doc-manifest.json`**'s `generated` section.
 
-## Validation
+## Validation checklist
 
 - [ ] `README.md` exists at project root and follows the shape in `memory/doc-templates.md`
 - [ ] Every setup/env-var claim traces to the runtime & environment findings — nothing assumed

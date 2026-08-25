@@ -79,9 +79,9 @@ graph LR
 | **مفاتيح API والرموز السرية** | `sk_live_948f98a7c1b2...` | `EXAMPLE_TOKEN_1234567890ABCDEFGH` أو `YOUR_API_KEY` |
 | **كلمات المرور وقواعد البيانات** | `RootP@ssw0rd2026!` | `your_secret_password` |
 | **عناوين IP الخاصة بالخوادم** | `192.168.1.50`, `45.33.21.99` | `203.0.113.1` (نطاق RFC 5737 المخصص للتوثيق) |
-| **روابط الملفات المحلية** | `file:///C:/wamp64/www/...` | `./docs/guides/` أو `project-root/` |
+| **روابط الملفات المحلية** | `file:///C:/path/to/project/...` | `./docs/guides/` أو `project-root/` |
 | **روابط بيئة التطوير الداخلية** | `http://localhost:8080/admin` | `https://api.example.com` أو `http://localhost:PORT` |
-| **مسارات مجلدات المستخدم** | `C:\Users\username\...` | `~/project` أو `/path/to/project` |
+| **مسارات مجلدات المستخدم** | `/home/developer/workspace/...` | `~/project` أو `/path/to/project` |
 
 ---
 

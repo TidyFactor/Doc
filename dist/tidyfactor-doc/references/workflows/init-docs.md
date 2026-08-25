@@ -10,7 +10,7 @@ One outcome: a working `/docs` scaffold plus a doc manifest, ready for `collect`
 4. **Write a placeholder `docs/README.md` index** (one paragraph: what this `/docs` folder contains, and a note that it's generated/maintained by TidyFactor Doc) — this is the doc-site landing page, distinct from the project-root `README.md`.
 5. **Report** what was created and what stack(s) were detected, and suggest `collect` as the next step.
 
-## Validation
+## Validation checklist
 
 - [ ] `/docs` exists with only the subfolders `doc-tree.md` calls for given the detected stack(s) — nothing extra, nothing missing
 - [ ] `docs/.doc-manifest.json` exists, is valid JSON, and matches the schema in `memory/doc-tree.md`

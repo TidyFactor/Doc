@@ -3,6 +3,14 @@
 All notable changes to `tidyfactor-doc` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.1] - 2026-08-25
+
+### Fixed
+- **CLI Executable & NPX Packaging**: Added standard `"add-skill": "bin/add-skill.js"` mapping in `package.json` to ensure unified `npx @alwkala/tidyfactor-doc add-skill` execution.
+- **Workflow Compliance**: Standardized `## Validation checklist` headers across all 8 workflows.
+
+---
+
 ## [1.2.0] - 2026-08-25
 
 ### Added
