@@ -27,6 +27,11 @@
     "type": "git",
     "url": "git+https://github.com/TidyFactor/Doc.git"
   },
+  "scripts": {
+    "validate": "python tools/validate_skill.py",
+    "build": "node tools/build-skill.js",
+    "release": "python ../tools/release_skill.py ."
+  },
   "publishConfig": {
     "access": "public"
   },
