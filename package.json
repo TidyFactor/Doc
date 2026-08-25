@@ -1,7 +1,7 @@
 {
   "name": "@alwkala/tidyfactor-doc",
-  "version": "1.1.0",
-  "description": "TidyFactor Doc — Code Documentation Builder & Docsify Architecture Engine for AI Coding Agents",
+  "version": "1.2.0",
+  "description": "TidyFactor Doc — Code Documentation Builder & Dual-Engine Publishing Platform (MkDocs Material & Docsify) for AI Coding Agents",
   "main": "bin/add-skill.js",
   "bin": {
     "tidyfactor-doc": "bin/add-skill.js",

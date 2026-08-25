@@ -3,6 +3,29 @@
 All notable changes to `tidyfactor-doc` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-08-25
+
+### Added
+- **MkDocs Material Publishing Engine**:
+  - Full static HTML compilation track for high-performance production doc portals.
+  - Native bilingual parallel build support (`/` and `/ar/`) via `mkdocs-static-i18n`.
+  - Built-in Lunr.js offline search indexing (English + Arabic tokenization).
+  - Neo-Brutalist luxury styling tokens (`tidyfactor-light` & `tidyfactor-dark`) via `stylesheets/extra.css`.
+  - macOS-style terminal dots on highlighted code blocks with line spans.
+  - GitHub-style alert callout transformer (`[!IMPORTANT]`, `[!NOTE]`, `[!WARNING]`, `[!TIP]`) via `javascripts/extra.js`.
+  - Local Apache subfolder transparent routing via `.htaccess`.
+- **Interactive Engine Selector Command (`site`)**:
+  - Interactive evaluation matrix in `references/commands/site.md` and `references/memory/site-engines.md`.
+  - Auto-detection of local Python/pip environment vs. zero-build CDN requirements.
+  - Clear user choice and recommendation guidance between MkDocs Material and Docsify.
+- **Dedicated Direct Commands**:
+  - `mkdocs`: Direct entry point for MkDocs Material static portal compilation.
+  - `docsify`: Direct entry point for Docsify zero-build lightweight SPA.
+- **New Workflows & Memory Specs**:
+  - `references/workflows/mkdocs.md`: End-to-end scaffolding, building, and validation checklist.
+  - `references/memory/mkdocs-config.md`: Master `mkdocs.yml` schema, theme configuration, and i18n rules.
+  - `references/memory/site-engines.md`: Technical comparison between Docsify and MkDocs Material.
+
 ---
 
 ## [1.1.0] - 2026-08-20
