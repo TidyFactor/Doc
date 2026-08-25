@@ -13,7 +13,7 @@ A command dispatcher. This file does not do the work itself — it routes to the
 |---|---|---|
 | "Set up docs for this project" / "scaffold /docs" | `references/commands/init.md` | `workflows/init-docs.md` + `memory/doc-tree.md` |
 | "Document this codebase" / "gather what's needed to document X" | `references/commands/collect.md` | `workflows/collect.md` + `memory/collection-sources.md` |
-| "Write API docs" / "generate a README" / "add inline comments" / "write a guide" | `references/commands/generate.md` | one of `workflows/generate-*.md` + `memory/doc-templates.md` + the matching `memory/stacks/*.md` |
+| "Write API docs" / "generate a README" / "add inline comments" / "write a guide" | `references/commands/generate.md` | `workflows/generate-api.md` (or `generate-readme.md` / `generate-inline.md` / `generate-guide.md`) + `memory/doc-templates.md` + matching `memory/stacks/*.md` |
 | "Publish documentation portal" / "turn /docs into a doc site" (Interactive) | `references/commands/site.md` | `memory/site-engines.md` + interactive selection (`workflows/mkdocs.md` or `workflows/docsify.md`) |
 | "Set up MkDocs Material" / "compile static documentation" | `references/commands/mkdocs.md` | `workflows/mkdocs.md` + `memory/mkdocs-config.md` |
 | "Set up Docsify" / "build lightweight zero-build doc SPA" | `references/commands/docsify.md` | `workflows/docsify.md` + `memory/docsify-config.md` |
