@@ -7,10 +7,6 @@
     "tidyfactor-doc": "bin/add-skill.js",
     "add-doc-skill": "bin/add-skill.js"
   },
-  "scripts": {
-    "validate": "python tools/validate_skill.py",
-    "build": "node tools/build-skill.js"
-  },
   "keywords": [
     "tidyfactor",
     "docs",
