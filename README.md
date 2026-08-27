@@ -15,6 +15,12 @@
 
 [🌐 Official Website](https://tidyfactor.com/) • [📚 Documentation](https://tidyfactor.com/documentation) • [🤝 Partner (Alwkala)](https://alwkala.com/) • [⚡ Commands](#-commands--the-4-phase-documentation-lifecycle) • [🛡️ Security Guarantees](#-enterprise-security--sanitization-guarantees) • [📖 Read in Arabic (بالعربية)](README.ar.md)
 
+<br/><br/>
+
+<p align="center">
+  <img src="assets/hero-banner.png" alt="TidyFactor Doc Hero Banner" width="100%" />
+</p>
+
 </div>
 
 ---

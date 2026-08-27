@@ -14,6 +14,12 @@
 
 [🌐 الموقع الرسمي](https://tidyfactor.com/) • [📚 مركز التوثيق](https://tidyfactor.com/documentation) • [🤝 الشريك (الوكالة)](https://alwkala.com/) • [⚡ سجل الأوامر](#-سجل-الأوامر-ومسارات-التوثيق-الأربعة) • [🛡️ الضمانات الأمنية](#-ضمانات-الأمان-وحجب-البيانات-الحساسة) • [📖 النسخة الإنجليزية (English)](README.md)
 
+<br/><br/>
+
+<p align="center">
+  <img src="assets/hero-banner.png" alt="TidyFactor Doc Hero Banner" width="100%" />
+</p>
+
 </div>
 
 ---

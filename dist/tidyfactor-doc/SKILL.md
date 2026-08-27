@@ -1,8 +1,7 @@
 ---
 name: tidyfactor-doc
-description: TidyFactor Doc — code documentation builder and dual-engine publishing platform (MkDocs Material & Docsify). Interviews codebases (source comments, Git history, env requirements, error patterns) to generate accurate, maintainable docs under /docs — API references, READMEs, inline comments, and technical guides. Supports interactive doc portal generation with static compilation (MkDocs Material with native Arabic RTL i18n & Neo-Brutalist themes) or zero-build lightweight SPAs (Docsify). Trigger on commands "init", "collect", "generate", "site", "mkdocs", "docsify", or requests like "document this repo", "write API docs", "generate a README", "add JSDoc/PHPDoc", "publish doc portal", "set up MkDocs", "set up Docsify". Has stack-specific rules for PHP, JavaScript, TypeScript, React/Vue/Next.
+description: "Code documentation builder and dual-engine publishing platform (MkDocs Material and Docsify). Generates comprehensive API references, READMEs, inline docblocks, and technical guides under /docs. Trigger on commands 'init', 'collect', 'generate', 'site', 'mkdocs', 'docsify', or requests like 'document this codebase', 'generate API docs', 'set up MkDocs', or 'set up Docsify'."
 ---
-
 # TidyFactor Doc
 
 A command dispatcher. This file does not do the work itself — it routes to the right command, which routes to the right workflow, which injects the right memory.
@@ -13,7 +12,7 @@ A command dispatcher. This file does not do the work itself — it routes to the
 |---|---|---|
 | "Set up docs for this project" / "scaffold /docs" | `references/commands/init.md` | `workflows/init-docs.md` + `memory/doc-tree.md` |
 | "Document this codebase" / "gather what's needed to document X" | `references/commands/collect.md` | `workflows/collect.md` + `memory/collection-sources.md` |
-| "Write API docs" / "generate a README" / "add inline comments" / "write a guide" | `references/commands/generate.md` | one of `workflows/generate-*.md` + `memory/doc-templates.md` + the matching `memory/stacks/*.md` |
+| "Write API docs" / "generate a README" / "add inline comments" / "write a guide" | `references/commands/generate.md` | `workflows/generate-api.md` (or `generate-readme.md` / `generate-inline.md` / `generate-guide.md`) + `memory/doc-templates.md` + matching `memory/stacks/*.md` |
 | "Publish documentation portal" / "turn /docs into a doc site" (Interactive) | `references/commands/site.md` | `memory/site-engines.md` + interactive selection (`workflows/mkdocs.md` or `workflows/docsify.md`) |
 | "Set up MkDocs Material" / "compile static documentation" | `references/commands/mkdocs.md` | `workflows/mkdocs.md` + `memory/mkdocs-config.md` |
 | "Set up Docsify" / "build lightweight zero-build doc SPA" | `references/commands/docsify.md` | `workflows/docsify.md` + `memory/docsify-config.md` |

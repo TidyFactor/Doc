@@ -1,8 +1,7 @@
 ---
 name: tidyfactor-doc
-description: TidyFactor Doc — code documentation builder and dual-engine publishing platform (MkDocs Material & Docsify). Interviews codebases (source comments, Git history, env requirements, error patterns) to generate accurate, maintainable docs under /docs — API references, READMEs, inline comments, and technical guides. Supports interactive doc portal generation with static compilation (MkDocs Material with native Arabic RTL i18n & Neo-Brutalist themes) or zero-build lightweight SPAs (Docsify). Trigger on commands "init", "collect", "generate", "site", "mkdocs", "docsify", or requests like "document this repo", "write API docs", "generate a README", "add JSDoc/PHPDoc", "publish doc portal", "set up MkDocs", "set up Docsify". Has stack-specific rules for PHP, JavaScript, TypeScript, React/Vue/Next.
+description: "Code documentation builder and dual-engine publishing platform (MkDocs Material and Docsify). Generates comprehensive API references, READMEs, inline docblocks, and technical guides under /docs. Trigger on commands 'init', 'collect', 'generate', 'site', 'mkdocs', 'docsify', or requests like 'document this codebase', 'generate API docs', 'set up MkDocs', or 'set up Docsify'."
 ---
-
 # TidyFactor Doc
 
 A command dispatcher. This file does not do the work itself — it routes to the right command, which routes to the right workflow, which injects the right memory.
