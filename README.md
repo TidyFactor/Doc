@@ -5,7 +5,7 @@
 
 **Building accurate, maintainable, secure, and browsable documentation for the era of Human-Agent Collaboration.**
 
-[![npm version](https://img.shields.io/npm/v/@alwkala/tidyfactor-doc.svg?style=for-the-badge&color=4F46E5)](https://www.npmjs.com/package/@alwkala/tidyfactor-doc)
+[![npm version](https://img.shields.io/npm/v/@tidyfactor/doc.svg?style=for-the-badge&color=4F46E5)](https://www.npmjs.com/package/@tidyfactor/doc)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-TidyFactor%2FDoc-181717.svg?style=for-the-badge&logo=github)](https://github.com/TidyFactor/Doc)
 [![Security Redaction Certified](https://img.shields.io/badge/Security-Redaction%20Certified-emerald.svg?style=for-the-badge)](#-enterprise-security--sanitization-guarantees)
@@ -153,7 +153,7 @@ project-root/
 Add `tidyfactor-doc` to your active workspace or global agent registry:
 
 ```bash
-npx @alwkala/tidyfactor-doc add-skill
+npx @tidyfactor/cli-doc add-skill
 ```
 
 ### 2. Universal Agent Compatibility

@@ -5,7 +5,7 @@
 
 **بناء توثيقات فنية دقيقة، مستدامة، آمنة، وقابلة للتصفح لعصر التعاون بين المطورين ووكلاء الذكاء الاصطناعي.**
 
-[![حزمة NPM](https://img.shields.io/npm/v/@alwkala/tidyfactor-doc.svg?style=for-the-badge&color=4F46E5)](https://www.npmjs.com/package/@alwkala/tidyfactor-doc)
+[![حزمة NPM](https://img.shields.io/npm/v/@tidyfactor/doc.svg?style=for-the-badge&color=4F46E5)](https://www.npmjs.com/package/@tidyfactor/doc)
 [![الترخيص: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-TidyFactor%2FDoc-181717.svg?style=for-the-badge&logo=github)](https://github.com/TidyFactor/Doc)
 [![حماية البيانات والخصوصية](https://img.shields.io/badge/Security-Redaction%20Certified-emerald.svg?style=for-the-badge)](#-ضمانات-الأمان-وحجب-البيانات-الحساسة)
@@ -135,7 +135,7 @@ project-root/
 لإضافة مهارة `tidyfactor-doc` إلى مشروعك أو سجل الوكلاء لديك:
 
 ```bash
-npx @alwkala/tidyfactor-doc add-skill
+npx @tidyfactor/cli-doc add-skill
 ```
 
 ### 2. التوافق الشامل مع وكلاء الذكاء الاصطناعي

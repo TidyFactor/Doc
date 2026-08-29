@@ -1,5 +1,5 @@
 {
-  "name": "@alwkala/tidyfactor-doc",
+  "name": "@tidyfactor/doc",
   "version": "1.3.0",
   "description": "TidyFactor Doc — Code Documentation Builder & Dual-Engine Publishing Platform (MkDocs Material & Docsify) for AI Coding Agents",
   "main": "SKILL.md",
@@ -19,7 +19,7 @@
     "cursor",
     "documentation-generator"
   ],
-  "author": "TidyFactor & Alwkala <hello@tidyfactor.com> (https://alwkala.com)",
+  "author": "TidyFactor <hello@tidyfactor.com> (https://tidyfactor.com)",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
 {
-  "project": "@alwkala/tidyfactor-doc",
+  "project": "@tidyfactor/doc",
   "stacks": [
     "js",
     "python"
