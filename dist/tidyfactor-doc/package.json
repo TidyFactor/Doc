@@ -1,6 +1,6 @@
 {
   "name": "@alwkala/tidyfactor-doc",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "TidyFactor Doc — Code Documentation Builder & Dual-Engine Publishing Platform (MkDocs Material & Docsify) for AI Coding Agents",
   "main": "SKILL.md",
   "bin": {
@@ -34,20 +34,26 @@
     "access": "public"
   },
   "files": [
+    ".tidyfactor",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.ar.md",
+    "README.de.md",
+    "README.es.md",
+    "README.fa.md",
+    "README.fr.md",
+    "README.md",
+    "README.pt.md",
+    "README.zh.md",
     "SKILL.md",
-    "references",
-    "memory",
-    "templates",
-    "scripts",
-    "tools",
     "assets",
     "bin",
     "brand.json",
-    ".tidyfactor",
-    "AGENTS.md",
-    "README.md",
-    "README.ar.md",
-    "LICENSE",
-    "CHANGELOG.md"
+    "memory",
+    "references",
+    "scripts",
+    "templates",
+    "tools"
   ]
 }

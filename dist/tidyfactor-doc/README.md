@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 TidyFactor Doc `v1.2.0`
+# 📚 TidyFactor Doc `v1.3.0`
 ### Automated Codebase Interview, API Generator & Dual-Engine Publishing Platform (MkDocs Material & Docsify)
 
 **Building accurate, maintainable, secure, and browsable documentation for the era of Human-Agent Collaboration.**

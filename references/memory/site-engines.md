@@ -36,6 +36,14 @@ Technical evaluation matrix for documentation publishing engines supported by `t
 
 ---
 
+## Two-Tier Multi-Language Documentation Pattern
+
+Both engines adhere to the TidyFactor Two-Tier Documentation standard:
+- **Canonical Technical SSOT**: Full API specifications, architecture, and code deep-dives maintained in Canonical English (`/docs/en/` or root) with First-Class Arabic (`/docs/ar/`).
+- **Localized Adoption Guides**: Quickstarts, tutorials, concepts, and command matrices for Tier 1/2 growth languages (`es`, `pt`, `fa`, `zh`, `de`, `fr`) providing high-conversion onboarding.
+
+---
+
 ## Toolchain Verification Command
 
 ```bash
