@@ -162,8 +162,19 @@ python -m http.server 3001 -d docs
 
 ---
 
-## 📜 الترخيص وحوكمة المنظومة
+## 👨‍💻 المنظمة والتواصل والدعم
 
-- **الترخيص**: مرخصة تحت رخصة **Apache License 2.0**.
-- **المنظومة**: تطوير وصيانة [منظومة TidyFactor](https://tidyfactor.com) بالشراكة مع [الوكالة الرقمية Alwkala](https://alwkala.com).
-- **الحوكمة**: مبنية وموثقة وفق **منهجية مهارات TidyFactor** (Single Source of Truth، وإصدارات SemVer الموثقة، وفصل التوجيه عن التنفيذ).
+- 🌐 **الموقع الرسمي للمنظومة:** [https://tidyfactor.com/](https://tidyfactor.com/)
+- 📚 **التوثيق الرسمي المعتمد:** [https://tidyfactor.com/documentation](https://tidyfactor.com/documentation)
+- 🤝 **الشريك التقني الرسمي:** [وكالة الوكالة الرقمية Alwkala](https://alwkala.com/)
+- 🐙 **منظمة GitHub الرسمية:** [github.com/TidyFactor](https://github.com/TidyFactor)
+- 📧 **استفسارات الأعمال والشراكات:** [hello@tidyfactor.com](mailto:hello@tidyfactor.com)
+- 📱 **واتساب:** [+20 101 665 6899](https://wa.me/201016656899)
+- 📞 **الهاتف:** +20 101 665 6899
+- 📍 **المقر:** القاهرة، جمهورية مصر العربية
+
+---
+
+## 📜 الترخيص والمجتمع
+
+مرخصة تحت رخصة **Apache License 2.0**. حقوق النشر محفوظة (c) 2026 لصالح [منظومة TidyFactor](https://tidyfactor.com) و[وكالة الوكالة الرقمية Alwkala](https://alwkala.com).
