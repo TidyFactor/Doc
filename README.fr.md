@@ -4,7 +4,7 @@
 
 **Générateur de Documentation de Codebase et Plateforme de Publication Double (MkDocs & Docsify) pour Agents d'IA**
 
-[![npm version](https://img.shields.io/npm/v/@alwkala/tidyfactor-doc.svg?style=for-the-badge&color=0284C7)](https://www.npmjs.com/package/@alwkala/tidyfactor-doc)
+[![npm version](https://img.shields.io/npm/v/@tidyfactor/doc.svg?style=for-the-badge&color=0284C7)](https://www.npmjs.com/package/@tidyfactor/doc)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg?style=for-the-badge)](LICENSE)
 
 [ English ](README.md) • [ العربية ](README.ar.md) • [ فارسی ](README.fa.md) • [ Español ](README.es.md) • [ Português ](README.pt.md) • [ 简体中文 ](README.zh.md) • [ Deutsch ](README.de.md) • [ Français ](README.fr.md)
@@ -17,7 +17,7 @@
 
 ```bash
 # Installation et exécution via NPX
-npx @alwkala/tidyfactor-doc
+npx @tidyfactor/cli-doc
 ```
 
 Ou appelez-le directement depuis votre assistant IA (*Google Antigravity, Claude Code, Cursor, Codex*) :

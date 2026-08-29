@@ -4,7 +4,7 @@
 
 **موتور ساخت مستندات کد و انتشار دوگانه پورتال‌های مستندات (MkDocs و Docsify) برای ایجنت‌های هوش مصنوعی**
 
-[![npm version](https://img.shields.io/npm/v/@alwkala/tidyfactor-doc.svg?style=for-the-badge&color=0284C7)](https://www.npmjs.com/package/@alwkala/tidyfactor-doc)
+[![npm version](https://img.shields.io/npm/v/@tidyfactor/doc.svg?style=for-the-badge&color=0284C7)](https://www.npmjs.com/package/@tidyfactor/doc)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg?style=for-the-badge)](LICENSE)
 
 [ English ](README.md) • [ العربية ](README.ar.md) • [ فارسی ](README.fa.md) • [ Español ](README.es.md) • [ Português ](README.pt.md) • [ 简体中文 ](README.zh.md) • [ Deutsch ](README.de.md) • [ Français ](README.fr.md)
@@ -17,7 +17,7 @@
 
 ```bash
 # نصب و اجرای مستقیم از طریق NPX
-npx @alwkala/tidyfactor-doc
+npx @tidyfactor/cli-doc
 ```
 
 یا فراخوانی مستقیم در دستیار برنامه‌نویسی (*Google Antigravity, Claude Code, Cursor, Codex*):

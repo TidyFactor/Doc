@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## [1.2.1] - 2026-08-25
 
 ### Fixed
-- **CLI Executable & NPX Packaging**: Added standard `"add-skill": "bin/add-skill.js"` mapping in `package.json` to ensure unified `npx @alwkala/tidyfactor-doc add-skill` execution.
+- **CLI Executable & NPX Packaging**: Added standard `"add-skill": "bin/add-skill.js"` mapping in `package.json` to ensure unified `npx @tidyfactor/cli-doc add-skill` execution.
 - **Workflow Compliance**: Standardized `## Validation checklist` headers across all 8 workflows.
 
 ---
@@ -72,4 +72,4 @@ This project adheres to [Semantic Versioning](https://semver.org/).
   - `docsify`: Generates responsive Docsify documentation websites with persistent subfolder sidebar routing.
 - Stack-specific memory rules for PHP 8, TypeScript, JavaScript, and React/Vue/Next component docs.
 - Full cross-agent compatibility across Google Antigravity, Claude Code, Cursor, Codex, and Windsurf.
-- Packaging as `@alwkala/tidyfactor-doc` under Apache License 2.0.
+- Packaging as `@tidyfactor/doc` under Apache License 2.0.
