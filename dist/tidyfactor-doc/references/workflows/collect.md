@@ -2,29 +2,55 @@
 
 One outcome: a structured findings file — `docs/.collected/<target>.md` — that `generate` can turn into any doc type without re-deriving facts from the codebase itself. `<target>` is the module, package, API surface, or component named by the request (or the whole project if none was named).
 
-## Steps
+---
 
-Run all five collection dimensions from `memory/collection-sources.md` against the target. Skip a dimension only if it genuinely doesn't apply (e.g., no Git history available for an uploaded snapshot) — note the skip and why, don't silently omit it.
+## 📋 Step 0: Context Delta Resolution & Auto-Sensing
 
-0. **Active Context Discovery & Brain MCP (Fail-Open)**:
-   - Silently check if project architecture KIs exist via `search_knowledge_base(query="architecture routes apis", scope="project")` when Brain MCP is active.
-   - If Brain MCP is absent or returns empty, proceed with 0ms delay directly to step 1.
-1. **Code parsing.** Extract existing docblocks/comments, function/method/class signatures, exported types, and public surface area directly from source. Flag anything already documented inline so `generate` doesn't duplicate it.
-2. **Commit history.** Read `git log` and any available PR descriptions for the target's files. Pull out *why* behind non-obvious code — rationale, past bugs fixed, deliberate tradeoffs — not just *what* changed.
-3. **Runtime & environment.** Enumerate required environment variables, config files, software dependencies (with version constraints), and any stated hardware/resource limits. **MANDATORY**: Scrub and redact any actual secrets, production server IPs, database passwords, or private API tokens found in `.env` or config files—record only variable names, expected formats, and generic placeholder values.
-4. **User persona tracing.** Identify who actually reads docs for this target — API consumers, internal maintainers, end-users — and note which facts matter to which persona (an internal maintainer needs the "why"; an API consumer needs the contract).
-5. **Error patterns.** Collect how the code fails: thrown exceptions, error codes, logged failure messages, and how each is meant to be handled or surfaced. Scrub any sensitive runtime credentials or local workstation paths that appear inside logged messages.
+Before prompting the user for scope or parameters, execute the mechanical resolution formula:
 
-6. **Write the findings** to `docs/.collected/<target>.md` as plain structured notes under five headings matching the dimensions above — this is source material for `generate`, not a finished doc, so skip prose polish.
-7. **Update `docs/.doc-manifest.json`**: add `<target>` to the `collected` section with a timestamp.
-8. **Optional Brain Sync (`--sync-brain`)**: Persist extracted architecture facts via `extract_knowledge_item` per `20-brain-baas-integration.md`.
+$$\text{Unknowns} = \text{Required Decisions} - (\text{Discovered Facts} \cup \text{Brain KIs})$$
 
-## Validation checklist
+1. **Auto-Sensing on Disk**:
+   - Inspect `mkdocs.yml`, `docs/index.html`, `docs/.doc-manifest.json`, and codebase structure.
+   - For sources marked with `track_staleness: true`, compare hash/mtime against stored snapshot.
+   - Any parameter resolved from disk is removed from $\text{Unknowns}$.
 
-- [ ] `docs/.collected/<target>.md` exists and has content (or an explicit "not applicable" note) under all five dimension headings
-- [ ] Every fact traces to something actually found in the code, history, config, or logs — nothing inferred or assumed
-- [ ] Zero sensitive data leaked: all real API keys, passwords, private IPs, and secrets are replaced with safe generic placeholders
-- [ ] No local workstation drive paths (`C:\...`, `file:///...`) exist in findings; all paths are normalized to project-relative paths
-- [ ] Deterministic audit passed via `python scripts/audit_docs.py docs/.collected/<target>.md`
-- [ ] `docs/.doc-manifest.json`'s `collected` section includes `<target>`
-- [ ] Findings are organized by dimension, not pre-formatted as any particular doc type
+2. **Fail-Open Brain MCP Acceleration**:
+   - Check if architecture KIs exist via `search_knowledge_base(query="architecture routes apis", scope="project")`.
+   - If Brain MCP is absent, offline, or returns empty, proceed with 0ms delay directly to Step 1 without warnings.
+
+---
+
+## 🔍 Step 1: Codebase Collection Dimensions
+
+Run all five collection dimensions from `memory/collection-sources.md` against the target:
+
+1. **Code parsing**: Extract existing docblocks/comments, function/method/class signatures, exported types, and public surface area directly from source. Flag anything already documented inline.
+2. **Commit history**: Read `git log` and available PR descriptions for target files. Pull out *why* behind non-obvious code (tradeoffs, rationale, bug fixes).
+3. **Runtime & environment**: Enumerate required environment variables, config files, software dependencies (with version constraints), and resource limits. **MANDATORY**: Scrub and redact any actual secrets, production server IPs, database passwords, or private API tokens—record only variable names and generic placeholders.
+4. **User persona tracing**: Identify who reads docs for this target (API consumers, internal maintainers, end-users) and map facts accordingly.
+5. **Error patterns**: Collect how the code fails: thrown exceptions, error codes, logged failure messages, and resolution steps. Scrub local workstation paths.
+
+---
+
+## 💾 Step 2: Persist Findings & Outbound Push
+
+1. Write structured notes to `docs/.collected/<target>.md` under five headings matching the dimensions above.
+2. Update `docs/.doc-manifest.json` with `<target>` and timestamp.
+3. Save local snapshot `.tidyfactor/doc-brief.snapshot.json` for deterministic drift detection.
+4. **Anti-Dual-Write Outbound Push (`--sync-brain`)**:
+   - Local markdown files are the sole Single Source of Truth.
+   - When `--sync-brain` is explicitly provided, export extracted architecture facts to Brain MCP via `extract_knowledge_item`.
+
+---
+
+## ## Validation checklist
+
+- [ ] Context Delta Resolution executed before prompting user.
+- [ ] `docs/.collected/<target>.md` exists and has content under all five dimension headings.
+- [ ] Every fact traces to verified code, history, config, or logs — zero hallucination.
+- [ ] Zero sensitive data leaked: all real API keys, passwords, private IPs, and secrets replaced with generic placeholders.
+- [ ] No local workstation drive paths (`C:\...`, `file:///...`) exist; all paths are normalized to project-relative paths.
+- [ ] Deterministic audit passed via `python scripts/audit_docs.py docs/.collected/<target>.md`.
+- [ ] `docs/.doc-manifest.json`'s `collected` section includes `<target>`.
+- [ ] Findings organized by dimension, not pre-formatted as any particular doc type.

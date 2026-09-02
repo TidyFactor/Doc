@@ -1,6 +1,6 @@
 {
   "name": "@tidyfactor/doc",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "TidyFactor Doc — Code Documentation Builder & Dual-Engine Publishing Platform (MkDocs Material & Docsify) for AI Coding Agents",
   "main": "SKILL.md",
   "bin": {
@@ -50,6 +50,7 @@
     "assets",
     "bin",
     "brand.json",
+    "manifest.json",
     "memory",
     "references",
     "scripts",
