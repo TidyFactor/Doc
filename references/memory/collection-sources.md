@@ -1,3 +1,4 @@
+<!-- last-verified: 2026-09-02 -->
 # Memory: collection-sources
 
 The five dimensions `collect` runs against a target, and exactly what to pull from each. Operational — no rationale.

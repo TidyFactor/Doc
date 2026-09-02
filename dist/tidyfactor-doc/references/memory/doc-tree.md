@@ -1,3 +1,4 @@
+<!-- last-verified: 2026-09-02 -->
 # Memory: doc-tree
 
 Canonical `/docs` folder shape and the manifest schema. Every command reads this before touching `/docs` so the structure stays identical across projects.

@@ -3,11 +3,14 @@
 All notable changes to `tidyfactor-doc` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
-## [1.2.1] - 2026-08-25
+## [1.4.0] - 2026-09-02
 
-### Fixed
-- **CLI Executable & NPX Packaging**: Added standard `"add-skill": "bin/add-skill.js"` mapping in `package.json` to ensure unified `npx @tidyfactor/cli-doc add-skill` execution.
-- **Workflow Compliance**: Standardized `## Validation checklist` headers across all 8 workflows.
+### 🧠 Added — Sovereign Brain MCP Integration, Hygiene Auditor & Fail-Open Protocol
+- **Brain Integration Contract (`references/memory/20-brain-baas-integration.md`)**: Sovereign self-hosted architecture and Documentation Knowledge Item (KI) payload schemas.
+- **Fail-Open Active Discovery (`references/workflows/collect.md`)**: Local workspace auto-sensing first, optional Brain MCP context acceleration (`search_knowledge_base`) when active, and instant 0ms silent fallback.
+- **Runtime Tooling Manifest (`manifest.json`)**: Declared portable `audit_docs` tool conforming to `skill-manifest.tools.schema.json` with `"skill_root_anchor": "self"`.
+- **Documentation Quality & Hygiene Auditor (`scripts/audit_docs.py`)**: Sub-second AST and pattern scanner detecting sensitive credentials leaks, passwords, private tokens, and banned absolute workstation URLs.
+- **Tooling Scope & Anti-Triggers**: Enriched `SKILL.md` with explicit Rule 10 Tooling Scope and anti-triggers.
 
 ---
 

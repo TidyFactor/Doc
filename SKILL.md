@@ -31,6 +31,23 @@ Read only the command file that matches the request. Do not read all commands si
 6. **Zero Sensitive Data Leakage.** Under absolutely no circumstances should any real sensitive data (e.g., real API tokens, WHM/cPanel passwords, production server IPs, real DB credentials, secret keys, private auth tokens, or local absolute drive paths) be written into documentation. ALWAYS redact and replace these with safe generic placeholders.
 7. **Clean Relative Links Only.** Never include local machine filesystem URLs (such as `file:///C:/...`, `file:c:`, or absolute workstation paths) in documentation links or markdown cross-references. All document cross-links must use clean relative markdown paths or standard public web URLs (`https://...`).
 
+## Anti-Triggers
+
+- Do NOT use for writing marketing campaigns or sales copywriting (use `tidyfactor-marketing`).
+- Do NOT use for platform infrastructure management or deployment tasks (use `tidyfactor-github` or ops skills).
+
+## Tooling Scope (Rule 10)
+
+- **Execution Tools**:
+  - `audit_docs` (`scripts/audit_docs.py`): Sub-second AST & credential leak scanner for markdown docs under `/docs`.
+- **Contract & Schema**: Portably declared in `manifest.json` with `"skill_root_anchor": "self"`.
+- **Invocability**: Executable via direct CLI or through `tidyfactor-brain` MCP `run_skill_tool`.
+
+## Skill vs MCP Boundary (Rule 12)
+
+- **Inside Skill**: Static documentation templates, stack-specific docblock schemas, and local hygiene auditing scripts.
+- **MCP Layer**: Sovereign Brain persistence (`search_knowledge_base`, `extract_knowledge_item`) operating under the strict Fail-Open protocol (`references/memory/20-brain-baas-integration.md`).
+
 ## Sequencing
 
 `init` → `collect` → `generate` (repeatable, once per doc target) → `site` / `mkdocs` / `docsify` (optional, once /docs has real content).

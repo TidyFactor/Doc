@@ -1,0 +1,29 @@
+{
+  "$schema": "https://tidyfactor.com/schemas/skill-manifest.tools.schema.json",
+  "skill_id": "tidyfactor-doc",
+  "version": "1.4.0",
+  "skill_root_anchor": "self",
+  "tools": [
+    {
+      "name": "audit_docs",
+      "description": "Audits documentation files under /docs for sensitive data leaks, banned absolute URLs, relative link integrity, and Docsify/MkDocs compliance.",
+      "runtime": "python",
+      "entrypoint": "scripts/audit_docs.py",
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Directory or markdown file path to audit (defaults to docs)"
+          },
+          "json": {
+            "type": "boolean",
+            "description": "Output structured JSON report"
+          }
+        }
+      },
+      "cli_pattern": "python {entrypoint} {target} --json",
+      "isolation_recommended": false
+    }
+  ]
+}
