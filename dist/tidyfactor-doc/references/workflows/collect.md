@@ -6,6 +6,9 @@ One outcome: a structured findings file — `docs/.collected/<target>.md` — th
 
 Run all five collection dimensions from `memory/collection-sources.md` against the target. Skip a dimension only if it genuinely doesn't apply (e.g., no Git history available for an uploaded snapshot) — note the skip and why, don't silently omit it.
 
+0. **Active Context Discovery & Brain MCP (Fail-Open)**:
+   - Silently check if project architecture KIs exist via `search_knowledge_base(query="architecture routes apis", scope="project")` when Brain MCP is active.
+   - If Brain MCP is absent or returns empty, proceed with 0ms delay directly to step 1.
 1. **Code parsing.** Extract existing docblocks/comments, function/method/class signatures, exported types, and public surface area directly from source. Flag anything already documented inline so `generate` doesn't duplicate it.
 2. **Commit history.** Read `git log` and any available PR descriptions for the target's files. Pull out *why* behind non-obvious code — rationale, past bugs fixed, deliberate tradeoffs — not just *what* changed.
 3. **Runtime & environment.** Enumerate required environment variables, config files, software dependencies (with version constraints), and any stated hardware/resource limits. **MANDATORY**: Scrub and redact any actual secrets, production server IPs, database passwords, or private API tokens found in `.env` or config files—record only variable names, expected formats, and generic placeholder values.
@@ -14,6 +17,7 @@ Run all five collection dimensions from `memory/collection-sources.md` against t
 
 6. **Write the findings** to `docs/.collected/<target>.md` as plain structured notes under five headings matching the dimensions above — this is source material for `generate`, not a finished doc, so skip prose polish.
 7. **Update `docs/.doc-manifest.json`**: add `<target>` to the `collected` section with a timestamp.
+8. **Optional Brain Sync (`--sync-brain`)**: Persist extracted architecture facts via `extract_knowledge_item` per `20-brain-baas-integration.md`.
 
 ## Validation checklist
 
@@ -21,5 +25,6 @@ Run all five collection dimensions from `memory/collection-sources.md` against t
 - [ ] Every fact traces to something actually found in the code, history, config, or logs — nothing inferred or assumed
 - [ ] Zero sensitive data leaked: all real API keys, passwords, private IPs, and secrets are replaced with safe generic placeholders
 - [ ] No local workstation drive paths (`C:\...`, `file:///...`) exist in findings; all paths are normalized to project-relative paths
+- [ ] Deterministic audit passed via `python scripts/audit_docs.py docs/.collected/<target>.md`
 - [ ] `docs/.doc-manifest.json`'s `collected` section includes `<target>`
 - [ ] Findings are organized by dimension, not pre-formatted as any particular doc type

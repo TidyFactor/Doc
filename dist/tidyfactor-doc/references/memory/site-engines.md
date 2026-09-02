@@ -1,3 +1,4 @@
+<!-- last-verified: 2026-09-02 -->
 # Memory: Site Engines (Docsify vs. MkDocs Material)
 
 Technical evaluation matrix for documentation publishing engines supported by `tidyfactor-doc`.

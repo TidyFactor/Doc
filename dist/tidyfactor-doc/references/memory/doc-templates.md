@@ -1,3 +1,4 @@
+<!-- last-verified: 2026-09-02 -->
 # Memory: doc-templates
 
 Shapes for each doc type `generate` produces. Templates, not prose — fill in from `collect` findings.

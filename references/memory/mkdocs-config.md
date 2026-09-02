@@ -1,3 +1,4 @@
+<!-- last-verified: 2026-09-02 -->
 # Memory: MkDocs Material Configuration Spec
 
 Complete architectural specification for scaffolding and compiling production-grade documentation portals with MkDocs Material.

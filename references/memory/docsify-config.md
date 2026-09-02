@@ -1,3 +1,4 @@
+<!-- last-verified: 2026-09-02 -->
 # Memory: docsify-config
 
 Fixed Docsify setup used by the `docsify` workflow. Not a menu of options — locked, production-tested config for TidyFactor documentation web portals.
