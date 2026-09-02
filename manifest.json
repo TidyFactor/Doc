@@ -1,29 +1,118 @@
 {
-  "$schema": "https://tidyfactor.com/schemas/skill-manifest.tools.schema.json",
+  "manifest_schema_version": "1.1.0",
   "skill_id": "tidyfactor-doc",
-  "version": "1.4.0",
   "skill_root_anchor": "self",
   "tools": [
     {
       "name": "audit_docs",
       "description": "Audits documentation files under /docs for sensitive data leaks, banned absolute URLs, relative link integrity, and Docsify/MkDocs compliance.",
-      "runtime": "python",
-      "entrypoint": "scripts/audit_docs.py",
-      "args_schema": {
-        "type": "object",
-        "properties": {
-          "target": {
-            "type": "string",
-            "description": "Directory or markdown file path to audit (defaults to docs)"
+      "entrypoint": {
+        "runtime": "python3",
+        "script": "scripts/audit_docs.py"
+      },
+      "invocation": {
+        "cli_pattern": "{runtime} {skill_root}/{script} {target_path} {flags}",
+        "args": [
+          {
+            "name": "target",
+            "type": "path",
+            "required": false,
+            "default": "docs",
+            "description": "Directory or markdown file path to audit"
           },
-          "json": {
+          {
+            "name": "json",
             "type": "boolean",
+            "required": false,
+            "default": false,
+            "flag": "--json",
             "description": "Output structured JSON report"
           }
-        }
+        ]
       },
-      "cli_pattern": "python {entrypoint} {target} --json",
-      "isolation_recommended": false
+      "output": {
+        "format": "json",
+        "channel": "stdout"
+      },
+      "runtime_requirements": {
+        "isolation_recommended": false,
+        "dependencies": []
+      },
+      "invoked_by_commands": ["generate", "site", "mkdocs", "docsify", "audit"]
+    }
+  ],
+  "decision_gates": [
+    {
+      "command": "init",
+      "description": "Decision gate selecting documentation engine, navigation structure, and audience persona.",
+      "decisions": [
+        {
+          "key": "doc_engine",
+          "description": "Target documentation publishing engine",
+          "type": "enum",
+          "options": ["mkdocs_material", "docsify_spa", "static_markdown"],
+          "default": "mkdocs_material",
+          "priority": 1,
+          "discovery": [
+            {
+              "source": "local_file",
+              "path": "mkdocs.yml",
+              "track_staleness": true
+            },
+            {
+              "source": "local_file",
+              "path": "docs/index.html",
+              "track_staleness": true
+            },
+            {
+              "source": "brain_ki",
+              "ki_type": "project"
+            }
+          ],
+          "persist_to": {
+            "local": { "path": ".tidyfactor/doc-brief.snapshot.json" },
+            "brain_ki": {
+              "sync_direction": "outbound_push_only",
+              "requires_flag": "--sync-brain"
+            }
+          }
+        },
+        {
+          "key": "target_scope",
+          "description": "Scope of documentation generation",
+          "type": "enum",
+          "options": ["full_codebase", "api_surface_only", "developer_guide", "end_user_docs"],
+          "default": "full_codebase",
+          "priority": 2,
+          "discovery": [
+            {
+              "source": "local_file",
+              "path": "docs/.doc-manifest.json"
+            }
+          ],
+          "persist_to": {
+            "local": { "path": ".tidyfactor/doc-brief.snapshot.json" }
+          }
+        },
+        {
+          "key": "audience_persona",
+          "description": "Primary audience reading the documentation",
+          "type": "enum",
+          "options": ["api_consumer", "internal_maintainer", "end_user", "bilingual_developer"],
+          "default": "bilingual_developer",
+          "priority": 3,
+          "discovery": [
+            {
+              "source": "local_file",
+              "path": "brand.json",
+              "json_path": "$.audience"
+            }
+          ],
+          "persist_to": {
+            "local": { "path": ".tidyfactor/doc-brief.snapshot.json" }
+          }
+        }
+      ]
     }
   ]
 }

@@ -3,6 +3,17 @@
 All notable changes to `tidyfactor-doc` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.5.0] - 2026-09-02
+
+### 🧠 Added — Contextual Decision Layer (CDL v1.1.0) & Declarative Decision Gates
+- **Declarative Decision Gates (`manifest.json`)**: Added formal `decision_gates[]` declaration for the `init` command conforming to manifest schema v1.1.0, defining `doc_engine`, `target_scope`, and `audience_persona` with `track_staleness: true`.
+- **Context Delta Resolution Engine (`references/workflows/collect.md`)**: Upgraded collect workflow to evaluate the mechanical Delta formula:
+  $$\text{Unknowns} = \text{Required Decisions} - (\text{Discovered Facts} \cup \text{Brain KIs})$$
+- **Interactive Disclosure & User Agency First**: Surfacing all genuine Unknowns interactively with structured options and recommendations.
+- **Anti-Dual-Write Architecture**: Enforcing local markdown files under `docs/` as sole SSOT, with one-way outbound cloud sync via `--sync-brain`.
+
+---
+
 ## [1.4.0] - 2026-09-02
 
 ### 🧠 Added — Sovereign Brain MCP Integration, Hygiene Auditor & Fail-Open Protocol
