@@ -147,13 +147,30 @@ project-root/
 
 ---
 
-## 🚀 Quick Start & Injection
+## 🚀 Installation & Quick Start
 
-### 1. Inject Skill via NPM
-Add `tidyfactor-doc` to your active workspace or global agent registry:
+Choose your preferred installation method:
 
+### Option A: Via TidyFactor CLI (Recommended)
+Install directly using the official ecosystem package runner into your active workspace:
 ```bash
-npx @tidyfactor/cli-doc add-skill
+npx @tidyfactor/cli add doc
+```
+*Or if you have the CLI installed globally (`npm i -g @tidyfactor/cli`):*
+```bash
+tidyfactor add doc
+```
+
+### Option B: Via Open Agent Skills Ecosystem (skills.sh / Vercel Labs)
+Install using the universal multi-agent standard across all supported IDEs (Cursor, Antigravity, Claude Code, Windsurf, Trae, Codex):
+```bash
+npx skills add tidyfactor/doc
+```
+
+### Option C: Standalone Zero-Dependency Runner (NPM Direct)
+Run the dedicated skill installer directly with automatic cache invalidation:
+```bash
+npx @tidyfactor/doc@latest
 ```
 
 ### 2. Universal Agent Compatibility
