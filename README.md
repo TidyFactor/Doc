@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 TidyFactor Doc `v1.3.0`
+# 📚 TidyFactor Doc `v1.6.0`
 ### Automated Codebase Interview, API Generator & Dual-Engine Publishing Platform (MkDocs Material & Docsify)
 
 **Building accurate, maintainable, secure, and browsable documentation for the era of Human-Agent Collaboration.**
@@ -13,7 +13,9 @@
 [![Universal AI Agents](https://img.shields.io/badge/AI%20Agents-Universal%20Compatibility-4285F4.svg?style=for-the-badge)](README.md)
 [![RTL Ready](https://img.shields.io/badge/RTL-Native%20Arabic-emerald.svg?style=for-the-badge)](README.ar.md)
 
-[🌐 Official Website](https://tidyfactor.com/) • [📚 Documentation](https://tidyfactor.com/documentation) • [🤝 Partner (Alwkala)](https://alwkala.com/) • [⚡ Commands](#-commands--the-4-phase-documentation-lifecycle) • [🛡️ Security Guarantees](#-enterprise-security--sanitization-guarantees) • [📖 Read in Arabic (بالعربية)](README.ar.md)
+[ English ](README.md) • [ العربية ](README.ar.md) • [ فارسی ](README.fa.md) • [ Español ](README.es.md) • [ Português ](README.pt.md) • [ 简体中文 ](README.zh.md) • [ Deutsch ](README.de.md) • [ Français ](README.fr.md)
+
+[🌐 Official Website](https://tidyfactor.com/) • [📚 Documentation](https://tidyfactor.com/documentation) • [🤝 Partner (Alwkala)](https://alwkala.com/) • [⚡ Commands](#-commands--the-4-phase-documentation-lifecycle) • [🛡️ Security Guarantees](#-enterprise-security--sanitization-guarantees)
 
 <br/><br/>
 
@@ -67,6 +69,7 @@ graph LR
 
 | Intent & User Request | Command | Loaded Workflow & Memory | Output Artifact |
 |---|---|---|---|
+| **"Establish doc context / interview / debate architecture"** / "brief" / "debate" | `brief` | `workflows/brief.md`<br>`memory/decision-points.md` | `.tidyfactor/doc-brief.snapshot.yaml`, `docs/architectural_debate_synthesis.md` |
 | **"Set up docs for this project"** / "scaffold /docs" | `init` | `workflows/init-docs.md`<br>`memory/doc-tree.md` | `/docs` scaffold, `docs/.doc-manifest.json`, `docs/README.md` |
 | **"Document this codebase"** / "gather facts for module X" | `collect` | `workflows/collect.md`<br>`memory/collection-sources.md` | `docs/.collected/<target>.md` (5-dimensional structured analysis) |
 | **"Write API reference"** / "generate docs for endpoints" | `generate` | `workflows/generate-api.md`<br>`memory/doc-templates.md`<br>`memory/stacks/*.md` | `docs/api/<target>.md` (parameter tables, returns, errors, examples) |

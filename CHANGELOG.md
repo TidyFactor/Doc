@@ -3,6 +3,45 @@
 All notable changes to `tidyfactor-doc` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.7.0] - 2026-09-09
+
+### 🚀 Added — Triple-Engine Publishing Platform (VitePress Integration) & Luxury RTL Design System
+- **VitePress Publishing Engine (references/commands/vitepress.md)**: Added full VitePress SSG engine support alongside MkDocs Material and Docsify.
+- **Ordered Workflow & Automation (references/workflows/vitepress.md)**: 6-step workflow covering scaffolding, multi-language subdirectory routing, luxury CSS injection, and zero-dead-link validation (npm run docs:build).
+- **Master Configuration & Luxury Tokens (references/memory/vitepress-config.md)**: Codified complete ESM config.mjs schema, Alexandria + Cairo + JetBrains Mono typography, surgical RTL navbar flex order, and Quick-Navigation grid templates.
+- **Luxury Hero & Actions Architecture**: Codified single-row CTA button flex safeguards (white-space: nowrap) and stable natural RTL Hero direction (Text/CTAs on right, Logo on left).
+- **3-Column Feature Cards & Column Collapse Fix**: Codified explicit width assignment on .VPFeatures .item and BiDi text safeguards.
+- **3-Way Engine Evaluation Matrix (references/memory/site-engines.md)**: Expanded to comprehensive 3-way evaluation across VitePress, MkDocs Material, and Docsify.
+
+---
+
+## [1.6.0] - 2026-09-08
+
+### 🧠 Added — Dual-Mode Decision Architect (DM-DA) & Debate Mode Engine (CDL v2.0)
+- **Interactive Interview & Debate Command (`brief`)**: Added `references/commands/brief.md` supporting trigger phrases `brief`, `interview`, `debate`, "استجوبني", and "ناقشني في معمارية التوثيق".
+- **Dual Operational Modes (`references/workflows/brief.md`)**:
+  - **[MODE A] Smart 3-Round Protocol**: Fast-track structured alignment in 3 deterministic rounds (Purpose & Target Persona ➔ Architecture & Engine ➔ Hygiene & Safe Defaults) terminating with an explicit escalation gate prompt.
+  - **[MODE B] Relentless Debate & Interview (Debate Mode)**: Deep multi-turn architectural counter-questioning, challenging assumptions on static vs. SPA, bilingual overhead, and automated secret scrubbing. Strictly terminates only on `"END DEBATE"` / `"اعتماد"`, emitting a formal `docs/architectural_debate_synthesis.md` artifact.
+- **Architectural Decision Matrix (`references/memory/decision-points.md`)**: Codified 5 core documentation dimensions (D1: Purpose & Scope, D2: Platform Engine, D3: Target Persona & Register, D4: Hygiene & Leak Policy, D5: Extraction Depth) with Boolean Skip Conditions for zero-overhead execution.
+- **Declarative Gate Expansion (`manifest.json`)**: Expanded manifest schema v1.1.0 with formal `brief` decision gates for D1–D5 with local YAML persistence (`.tidyfactor/doc-brief.snapshot.yaml`).
+
+---
+
+## [1.5.1] - 2026-09-08
+
+### 🏛️ Fixed & Synchronized — Governance Compliance (TidyFactor Skill Architect)
+- **Memory Freshness (Rule 11)**: Added `<!-- last-verified: 2026-09-08 -->` stamps to all stack memory files (`js-ts.md`, `php.md`, `react-vue-next.md`).
+- **Two-Tier Multi-Language Documentation (Rule 13)**:
+  - Integrated universal 8-language switcher bar into `README.md` and `README.ar.md`.
+  - Synchronized title banner versioning (`v1.5.1`) across all 8 market localizations (`README.md`, `README.ar.md`, `README.de.md`, `README.es.md`, `README.fa.md`, `README.fr.md`, `README.pt.md`, `README.zh.md`).
+- **Contextual Decision Layer CDL v2.0 (Rule 14)**:
+  - Integrated Step 0 Context Delta Resolution into `references/workflows/init-docs.md` with auto-sensing for `doc_engine`, `target_scope`, and `audience_persona`.
+- **Token Efficiency & YAML Primacy (Rule 15)**:
+  - Created canonical `brand.yaml` SSOT at skill root alongside `brand.json`.
+  - Updated `manifest.json` to persist decision snapshots to `.tidyfactor/doc-brief.snapshot.yaml` and discover from `brand.yaml`.
+
+---
+
 ## [1.5.0] - 2026-09-02
 
 ### 🧠 Added — Contextual Decision Layer (CDL v1.1.0) & Declarative Decision Gates

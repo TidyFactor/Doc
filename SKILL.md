@@ -1,6 +1,6 @@
 ---
 name: tidyfactor-doc
-description: "Code documentation builder and dual-engine publishing platform (MkDocs Material and Docsify). Generates comprehensive API references, READMEs, inline docblocks, and technical guides under /docs. Trigger on commands 'init', 'collect', 'generate', 'site', 'mkdocs', 'docsify', or requests like 'document this codebase', 'generate API docs', 'set up MkDocs', or 'set up Docsify'."
+description: "Code documentation builder and triple-engine publishing platform (VitePress, MkDocs Material, and Docsify). Generates comprehensive API references, READMEs, inline docblocks, and technical guides under /docs. Trigger on commands 'brief', 'init', 'collect', 'generate', 'site', 'vitepress', 'mkdocs', 'docsify', or requests like 'document this codebase', 'generate API docs', 'set up VitePress', or 'set up MkDocs'."
 ---
 # TidyFactor Doc
 
@@ -10,10 +10,12 @@ A command dispatcher. This file does not do the work itself — it routes to the
 
 | User intent | Command | What it loads |
 |---|---|---|
+| "Establish documentation context / interview / debate codebase architecture" / "brief" / "debate" | `references/commands/brief.md` | `workflows/brief.md` + `memory/decision-points.md` |
 | "Set up docs for this project" / "scaffold /docs" | `references/commands/init.md` | `workflows/init-docs.md` + `memory/doc-tree.md` |
 | "Document this codebase" / "gather what's needed to document X" | `references/commands/collect.md` | `workflows/collect.md` + `memory/collection-sources.md` |
 | "Write API docs" / "generate a README" / "add inline comments" / "write a guide" | `references/commands/generate.md` | `workflows/generate-api.md` (or `generate-readme.md` / `generate-inline.md` / `generate-guide.md`) + `memory/doc-templates.md` + matching `memory/stacks/*.md` |
-| "Publish documentation portal" / "turn /docs into a doc site" (Interactive) | `references/commands/site.md` | `memory/site-engines.md` + interactive selection (`workflows/mkdocs.md` or `workflows/docsify.md`) |
+| "Publish documentation portal" / "turn /docs into a doc site" (Interactive) | `references/commands/site.md` | `memory/site-engines.md` + interactive selection (`workflows/vitepress.md`, `workflows/mkdocs.md`, or `workflows/docsify.md`) |
+| "Set up VitePress" / "build modern Vue-powered doc portal" | `references/commands/vitepress.md` | `workflows/vitepress.md` + `memory/vitepress-config.md` |
 | "Set up MkDocs Material" / "compile static documentation" | `references/commands/mkdocs.md` | `workflows/mkdocs.md` + `memory/mkdocs-config.md` |
 | "Set up Docsify" / "build lightweight zero-build doc SPA" | `references/commands/docsify.md` | `workflows/docsify.md` + `memory/docsify-config.md` |
 
@@ -24,7 +26,8 @@ Read only the command file that matches the request. Do not read all commands si
 1. **All generated documentation lives under `/docs`.** Never write API references, guides, or generated READMEs to another location. (`README.md` itself stays at the project root, per convention — everything else generated goes in `/docs`.)
 2. **`generate` never invents content.** It only writes docs from what `collect` gathered (or equivalent detail the user supplies directly in the conversation) — never from assumed signatures, assumed env vars, or assumed behavior. If required detail is missing, `generate` says what's missing and asks or falls back to running `collect` first.
 3. **Stack rules are looked up, never guessed.** Before writing any code-level doc (API reference, inline comments), load the matching file under `memory/stacks/` for the language/framework actually in use. Do not mix PHPDoc conventions into a TypeScript file or vice versa.
-4. **`site`, `mkdocs`, and `docsify` only organize and publish what's already in `/docs`.** They never author new documentation content — that's `generate`'s job.
+4. **`site`, `vitepress`, `mkdocs`, and `docsify` only organize and publish what's already in `/docs`.** They never author new documentation content — that's `generate`'s job.
+   - For **VitePress**: Generate ESM `config.mjs`, inject luxury typography (`Alexandria` + `Cairo` + `JetBrains Mono`), enforce surgical RTL navbar order, single-row Hero action CTAs (`white-space: nowrap`), and explicit 3-column card widths (`width: 33.333333% !important`) with BiDi protection (`unicode-bidi: plaintext`). Build cleanly with `npx vitepress build docs`.
    - For **MkDocs Material**: Generate standard `mkdocs.yml`, configure Neo-Brutalist CSS tokens (`extra.css`), configure Arabic/English i18n (`*.ar.md` suffix), and build cleanly with `mkdocs build --strict`.
    - For **Docsify**: Include `alias: { '/.*/_sidebar.md': '/_sidebar.md' }` and root-relative leading slashes `/` in `_sidebar.md` to guarantee persistent sidebar navigation across all subfolder routes.
 5. **Standalone.** This skill does not read or depend on any other `tidyfactor-*` skill's conventions, even when the project happens to be built on one of those tracks.
@@ -50,4 +53,4 @@ Read only the command file that matches the request. Do not read all commands si
 
 ## Sequencing
 
-`init` → `collect` → `generate` (repeatable, once per doc target) → `site` / `mkdocs` / `docsify` (optional, once /docs has real content).
+`brief` (optional, architectural alignment & debate) → `init` → `collect` → `generate` (repeatable, once per doc target) → `site` / `vitepress` / `mkdocs` / `docsify` (optional, once /docs has real content).

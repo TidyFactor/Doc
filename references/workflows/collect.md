@@ -37,14 +37,14 @@ Run all five collection dimensions from `memory/collection-sources.md` against t
 
 1. Write structured notes to `docs/.collected/<target>.md` under five headings matching the dimensions above.
 2. Update `docs/.doc-manifest.json` with `<target>` and timestamp.
-3. Save local snapshot `.tidyfactor/doc-brief.snapshot.json` for deterministic drift detection.
+3. Save local snapshot `.tidyfactor/doc-brief.snapshot.yaml` for deterministic drift detection.
 4. **Anti-Dual-Write Outbound Push (`--sync-brain`)**:
    - Local markdown files are the sole Single Source of Truth.
    - When `--sync-brain` is explicitly provided, export extracted architecture facts to Brain MCP via `extract_knowledge_item`.
 
 ---
 
-## ## Validation checklist
+## Validation checklist
 
 - [ ] Context Delta Resolution executed before prompting user.
 - [ ] `docs/.collected/<target>.md` exists and has content under all five dimension headings.

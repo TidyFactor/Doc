@@ -1,6 +1,6 @@
 <div align="center">
 
-# tidyfactor-doc `v1.3.0`
+# tidyfactor-doc `v1.6.0`
 
 **Constructor de Documentación de Código y Motor de Publicación Dual (MkDocs & Docsify) para Agentes de IA**
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 TidyFactor Doc `v1.3.0`
+# 📚 TidyFactor Doc `v1.6.0`
 ### محرك استقراء الأكواد البرمجية، وتوليد مراجع الـ API، ومنصة النشر المزدوجة (MkDocs Material و Docsify)
 
 **بناء توثيقات فنية دقيقة، مستدامة، آمنة، وقابلة للتصفح لعصر التعاون بين المطورين ووكلاء الذكاء الاصطناعي.**
@@ -12,7 +12,9 @@
 [![روابط نظيفة ونسبية](https://img.shields.io/badge/Links-Clean%20%26%20Relative-cyan.svg?style=for-the-badge)](#-معايير-الروابط-النسبية-والتصفح-النظيف)
 [![توافق شامل مع وكلاء الذكاء الاصطناعي](https://img.shields.io/badge/AI%20Agents-Universal%20Compatibility-4285F4.svg?style=for-the-badge)](README.md)
 
-[🌐 الموقع الرسمي](https://tidyfactor.com/) • [📚 مركز التوثيق](https://tidyfactor.com/documentation) • [🤝 الشريك (الوكالة)](https://alwkala.com/) • [⚡ سجل الأوامر](#-سجل-الأوامر-ومسارات-التوثيق-الأربعة) • [🛡️ الضمانات الأمنية](#-ضمانات-الأمان-وحجب-البيانات-الحساسة) • [📖 النسخة الإنجليزية (English)](README.md)
+[ English ](README.md) • [ العربية ](README.ar.md) • [ فارسی ](README.fa.md) • [ Español ](README.es.md) • [ Português ](README.pt.md) • [ 简体中文 ](README.zh.md) • [ Deutsch ](README.de.md) • [ Français ](README.fr.md)
+
+[🌐 الموقع الرسمي](https://tidyfactor.com/) • [📚 مركز التوثيق](https://tidyfactor.com/documentation) • [🤝 الشريك (الوكالة)](https://alwkala.com/) • [⚡ سجل الأوامر](#-سجل-الأوامر-ومسارات-التوثيق-الأربعة) • [🛡️ الضمانات الأمنية](#-ضمانات-الأمان-وحجب-البيانات-الحساسة)
 
 <br/><br/>
 
@@ -66,6 +68,7 @@ graph LR
 
 | نية المطور وطلب المستخدم | الأمر | مسارات العمل والذاكرة المحملة | المخرجات الناتجة |
 |---|---|---|---|
+| **"تأصيل سياق التوثيق، الاستجواب أو المناظرة المعمارية"** / "brief" / "debate" | `brief` | `workflows/brief.md`<br>`memory/decision-points.md` | وثيقة `.tidyfactor/doc-brief.snapshot.yaml` و `docs/architectural_debate_synthesis.md` |
 | **"تجهيز وهيكلة مجلد التوثيق"** / "scaffold /docs" | `init` | `workflows/init-docs.md`<br>`memory/doc-tree.md` | مجلد `/docs`، ملف `docs/.doc-manifest.json`، وصفحة `docs/README.md` |
 | **"استقراء وفحص الكود والمشروع"** / "gather facts" | `collect` | `workflows/collect.md`<br>`memory/collection-sources.md` | تقرير `docs/.collected/<target>.md` (تحليل منظم بالأبعاد الخمسة) |
 | **"كتابة مرجع واجهة برمجة (API)"** / "API reference" | `generate` | `workflows/generate-api.md`<br>`memory/doc-templates.md`<br>`memory/stacks/*.md` | ملف `docs/api/<target>.md` (جداول المعاملات، القيم المرجعة، الأخطاء) |

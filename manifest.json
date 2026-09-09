@@ -43,16 +43,34 @@
   ],
   "decision_gates": [
     {
-      "command": "init",
-      "description": "Decision gate selecting documentation engine, navigation structure, and audience persona.",
+      "command": "brief",
+      "aliases": ["init", "debate"],
+      "description": "Decision gate selecting documentation engine, target persona, hygiene policy, and extraction scope.",
       "decisions": [
         {
+          "key": "target_scope",
+          "description": "Scope of documentation generation (D1)",
+          "type": "enum",
+          "options": ["full_codebase", "api_surface_only", "internal_architecture", "end_user_docs"],
+          "default": "full_codebase",
+          "priority": 1,
+          "discovery": [
+            {
+              "source": "local_file",
+              "path": "docs/.doc-manifest.json"
+            }
+          ],
+          "persist_to": {
+            "local": { "path": ".tidyfactor/doc-brief.snapshot.yaml" }
+          }
+        },
+        {
           "key": "doc_engine",
-          "description": "Target documentation publishing engine",
+          "description": "Target documentation publishing engine (D2)",
           "type": "enum",
           "options": ["mkdocs_material", "docsify_spa", "static_markdown"],
           "default": "mkdocs_material",
-          "priority": 1,
+          "priority": 2,
           "discovery": [
             {
               "source": "local_file",
@@ -70,7 +88,7 @@
             }
           ],
           "persist_to": {
-            "local": { "path": ".tidyfactor/doc-brief.snapshot.json" },
+            "local": { "path": ".tidyfactor/doc-brief.snapshot.yaml" },
             "brain_ki": {
               "sync_direction": "outbound_push_only",
               "requires_flag": "--sync-brain"
@@ -78,30 +96,18 @@
           }
         },
         {
-          "key": "target_scope",
-          "description": "Scope of documentation generation",
-          "type": "enum",
-          "options": ["full_codebase", "api_surface_only", "developer_guide", "end_user_docs"],
-          "default": "full_codebase",
-          "priority": 2,
-          "discovery": [
-            {
-              "source": "local_file",
-              "path": "docs/.doc-manifest.json"
-            }
-          ],
-          "persist_to": {
-            "local": { "path": ".tidyfactor/doc-brief.snapshot.json" }
-          }
-        },
-        {
           "key": "audience_persona",
-          "description": "Primary audience reading the documentation",
+          "description": "Primary audience reading the documentation (D3)",
           "type": "enum",
-          "options": ["api_consumer", "internal_maintainer", "end_user", "bilingual_developer"],
+          "options": ["bilingual_developer", "api_consumer", "internal_maintainer", "end_user"],
           "default": "bilingual_developer",
           "priority": 3,
           "discovery": [
+            {
+              "source": "local_file",
+              "path": "brand.yaml",
+              "yaml_path": "audience"
+            },
             {
               "source": "local_file",
               "path": "brand.json",
@@ -109,7 +115,41 @@
             }
           ],
           "persist_to": {
-            "local": { "path": ".tidyfactor/doc-brief.snapshot.json" }
+            "local": { "path": ".tidyfactor/doc-brief.snapshot.yaml" }
+          }
+        },
+        {
+          "key": "hygiene_policy",
+          "description": "Security redaction and sensitive data leak policy (D4)",
+          "type": "enum",
+          "options": ["strict_zero_leak", "public_sdk_redaction", "internal_audit_permissive"],
+          "default": "strict_zero_leak",
+          "priority": 4,
+          "discovery": [
+            {
+              "source": "brain_ki",
+              "ki_type": "security"
+            }
+          ],
+          "persist_to": {
+            "local": { "path": ".tidyfactor/doc-brief.snapshot.yaml" }
+          }
+        },
+        {
+          "key": "collection_depth",
+          "description": "Extraction dimensions depth for codebase collection (D5)",
+          "type": "enum",
+          "options": ["full_5_dimensions", "signatures_and_types", "architecture_and_rationale"],
+          "default": "full_5_dimensions",
+          "priority": 5,
+          "discovery": [
+            {
+              "source": "local_file",
+              "path": "docs/.doc-manifest.json"
+            }
+          ],
+          "persist_to": {
+            "local": { "path": ".tidyfactor/doc-brief.snapshot.yaml" }
           }
         }
       ]
