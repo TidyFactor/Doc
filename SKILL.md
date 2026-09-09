@@ -1,6 +1,6 @@
 ---
 name: tidyfactor-doc
-description: "Code documentation builder and triple-engine publishing platform (VitePress, MkDocs Material, and Docsify). Generates comprehensive API references, READMEs, inline docblocks, and technical guides under /docs. Trigger on commands 'brief', 'init', 'collect', 'generate', 'site', 'vitepress', 'mkdocs', 'docsify', or requests like 'document this codebase', 'generate API docs', 'set up VitePress', or 'set up MkDocs'."
+description: "Code documentation builder and triple-engine publishing platform (VitePress, MkDocs Material, and Docsify). Generates API references, READMEs, changelogs, inline docblocks, and guides. Trigger on commands 'brief', 'init', 'collect', 'generate', 'site', 'vitepress', 'mkdocs', 'docsify', 'audit', or requests like 'document this codebase', 'create changelog', 'audit docs', or 'set up VitePress'."
 ---
 # TidyFactor Doc
 
@@ -13,11 +13,12 @@ A command dispatcher. This file does not do the work itself — it routes to the
 | "Establish documentation context / interview / debate codebase architecture" / "brief" / "debate" | `references/commands/brief.md` | `workflows/brief.md` + `memory/decision-points.md` |
 | "Set up docs for this project" / "scaffold /docs" | `references/commands/init.md` | `workflows/init-docs.md` + `memory/doc-tree.md` |
 | "Document this codebase" / "gather what's needed to document X" | `references/commands/collect.md` | `workflows/collect.md` + `memory/collection-sources.md` |
-| "Write API docs" / "generate a README" / "add inline comments" / "write a guide" | `references/commands/generate.md` | `workflows/generate-api.md` (or `generate-readme.md` / `generate-inline.md` / `generate-guide.md`) + `memory/doc-templates.md` + matching `memory/stacks/*.md` |
+| "Write API docs" / "generate a README" / "create CHANGELOG" / "add inline comments" / "write a guide" | `references/commands/generate.md` | `workflows/generate-api.md` (or `generate-readme.md` / `generate-changelog.md` / `generate-inline.md` / `generate-guide.md`) + `memory/doc-templates.md` + `memory/changelog-rules.md` + matching `memory/stacks/*.md` |
 | "Publish documentation portal" / "turn /docs into a doc site" (Interactive) | `references/commands/site.md` | `memory/site-engines.md` + interactive selection (`workflows/vitepress.md`, `workflows/mkdocs.md`, or `workflows/docsify.md`) |
 | "Set up VitePress" / "build modern Vue-powered doc portal" | `references/commands/vitepress.md` | `workflows/vitepress.md` + `memory/vitepress-config.md` |
 | "Set up MkDocs Material" / "compile static documentation" | `references/commands/mkdocs.md` | `workflows/mkdocs.md` + `memory/mkdocs-config.md` |
 | "Set up Docsify" / "build lightweight zero-build doc SPA" | `references/commands/docsify.md` | `workflows/docsify.md` + `memory/docsify-config.md` |
+| "Audit docs quality / scan credential leaks / verify links & changelog" / "audit" | `references/commands/audit.md` | `workflows/audit.md` + `scripts/audit_docs.py` |
 
 Read only the command file that matches the request. Do not read all commands simultaneously.
 
@@ -42,7 +43,7 @@ Read only the command file that matches the request. Do not read all commands si
 ## Tooling Scope (Rule 10)
 
 - **Execution Tools**:
-  - `audit_docs` (`scripts/audit_docs.py`): Sub-second AST & credential leak scanner for markdown docs under `/docs`.
+  - `audit_docs` (`scripts/audit_docs.py`): Sub-second AST scanner for documentation under `/docs`, root `README.md`, and `CHANGELOG.md`. Audits credential leaks, machine-specific paths, broken relative links, and Keep a Changelog formatting.
 - **Contract & Schema**: Portably declared in `manifest.json` with `"skill_root_anchor": "self"`.
 - **Invocability**: Executable via direct CLI or through `tidyfactor-brain` MCP `run_skill_tool`.
 
@@ -53,4 +54,4 @@ Read only the command file that matches the request. Do not read all commands si
 
 ## Sequencing
 
-`brief` (optional, architectural alignment & debate) → `init` → `collect` → `generate` (repeatable, once per doc target) → `site` / `vitepress` / `mkdocs` / `docsify` (optional, once /docs has real content).
+`brief` (optional, architectural alignment & debate) → `init` → `collect` → `generate` (repeatable, once per doc target) → `site` / `vitepress` / `mkdocs` / `docsify` → `audit` (quality & link verification before release).

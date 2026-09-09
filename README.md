@@ -1,7 +1,7 @@
 <div align="center">
 
-# 📚 TidyFactor Doc `v1.6.0`
-### Automated Codebase Interview, API Generator & Dual-Engine Publishing Platform (MkDocs Material & Docsify)
+# 📚 TidyFactor Doc `v1.8.0`
+### Codebase Interview, API Generator, Changelog Architect, Link Auditor & Triple-Engine Publishing Platform (VitePress, MkDocs Material & Docsify)
 
 **Building accurate, maintainable, secure, and browsable documentation for the era of Human-Agent Collaboration.**
 
@@ -73,10 +73,15 @@ graph LR
 | **"Set up docs for this project"** / "scaffold /docs" | `init` | `workflows/init-docs.md`<br>`memory/doc-tree.md` | `/docs` scaffold, `docs/.doc-manifest.json`, `docs/README.md` |
 | **"Document this codebase"** / "gather facts for module X" | `collect` | `workflows/collect.md`<br>`memory/collection-sources.md` | `docs/.collected/<target>.md` (5-dimensional structured analysis) |
 | **"Write API reference"** / "generate docs for endpoints" | `generate` | `workflows/generate-api.md`<br>`memory/doc-templates.md`<br>`memory/stacks/*.md` | `docs/api/<target>.md` (parameter tables, returns, errors, examples) |
+| **"Generate CHANGELOG"** / "update release history" | `generate` | `workflows/generate-changelog.md`<br>`memory/doc-templates.md`<br>`memory/changelog-rules.md` | Root `CHANGELOG.md` (Keep a Changelog v1.1.0, SemVer 2.0.0) |
 | **"Write setup guide"** / "create architecture runbook" | `generate` | `workflows/generate-guide.md`<br>`memory/doc-templates.md` | `docs/guides/<purpose-slug>.md` (focused, single-purpose guide) |
 | **"Generate project README"** / "update root README" | `generate` | `workflows/generate-readme.md`<br>`memory/doc-templates.md` | Root `README.md` (overview, install, env vars, quick start) |
 | **"Add inline docblocks"** / "document public functions" | `generate` | `workflows/generate-inline.md`<br>`memory/stacks/*.md` | Direct source code edit with PHPDoc / JSDoc / TSDoc comments |
-| **"Turn /docs into Docsify site"** / "deploy doc portal" | `docsify` | `workflows/docsify.md`<br>`memory/docsify-config.md` | `docs/index.html` + `docs/_sidebar.md` (instant web portal) |
+| **"Publish documentation portal"** / "interactive selector" | `site` | `memory/site-engines.md` | Interactive selection (`vitepress`, `mkdocs`, `docsify`) |
+| **"Set up VitePress doc portal"** / "build Vue SSG" | `vitepress` | `workflows/vitepress.md`<br>`memory/vitepress-config.md` | `docs/.vitepress/config.mjs`, luxury RTL CSS |
+| **"Set up MkDocs Material"** / "compile static portal" | `mkdocs` | `workflows/mkdocs.md`<br>`memory/mkdocs-config.md` | `mkdocs.yml`, `docs/stylesheets/extra.css` |
+| **"Turn /docs into Docsify site"** / "deploy zero-build SPA" | `docsify` | `workflows/docsify.md`<br>`memory/docsify-config.md` | `docs/index.html` + `docs/_sidebar.md` (instant web portal) |
+| **"Audit doc quality / verify links & credentials"** / "audit" | `audit` | `workflows/audit.md`<br>`scripts/audit_docs.py` | AST quality report (link integrity, credential check, 100/100 score) |
 
 ---
 

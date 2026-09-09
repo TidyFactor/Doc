@@ -1,8 +1,8 @@
 {
   "name": "tidyfactor-doc",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "category": "development",
-  "description": "TidyFactor Doc — Code Documentation Builder & Triple-Engine Publishing Platform (VitePress, MkDocs Material & Docsify) for AI Coding Agents",
+  "description": "TidyFactor Doc — Code Documentation Builder, Changelog Architect, Link Auditor & Triple-Engine Publishing Platform (VitePress, MkDocs Material & Docsify) for AI Coding Agents",
   "repository": "https://github.com/TidyFactor/Doc",
   "npm": "@alwkala/tidyfactor-doc",
   "compatibility": [

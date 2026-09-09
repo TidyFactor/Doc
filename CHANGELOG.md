@@ -3,6 +3,29 @@
 All notable changes to `tidyfactor-doc` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.8.0] - 2026-09-09
+
+### 🚀 Added — Documentation Hygiene Auditor, Keep a Changelog Architecture & Asset Optimization
+- **Documentation Quality & Link Auditor (`references/commands/audit.md`, `references/workflows/audit.md`)**:
+  - Added dedicated `audit` command and workflow for sub-second deterministic doc scanning.
+  - Added relative markdown link integrity verification in `scripts/audit_docs.py` (`check_relative_links`) to detect broken local file links before release.
+  - Added Keep a Changelog structural validator (`check_changelog_format`) verifying SemVer release headers and standard change categories.
+- **Changelog Workflow & SSOT Architecture (`references/workflows/generate-changelog.md`)**:
+  - Codified automated `generate-changelog` workflow strictly adhering to Keep a Changelog v1.1.0 and SemVer 2.0.0.
+  - Conventional Commits parser mapping git commits to standard sections (`Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`).
+  - Integrated changelog generation routing into `references/commands/generate.md`.
+- **Operational Memory & Governance Templates (`references/memory/changelog-rules.md`, `references/memory/doc-templates.md`)**:
+  - Added `references/memory/changelog-rules.md` establishing release standards, SemVer bump formulas, and conventional commit mappings.
+  - Added standard `CHANGELOG.md` template to `references/memory/doc-templates.md`.
+  - Refreshed all memory verification timestamps (`<!-- last-verified: 2026-09-09 -->`).
+- **Asset Deduplication & Hygiene (`assets/`)**:
+  - Removed duplicate 242KB asset (`assets/og-default.png`), saving 50% of the asset footprint without breaking references.
+- **Unified Tooling & Decision Manifest (`manifest.json`)**:
+  - Expanded `audit_docs` tool contract with link integrity and changelog validation scopes.
+  - Registered `audit` and `vitepress` commands in tool invocation mappings and decision gate options.
+
+---
+
 ## [1.7.0] - 2026-09-09
 
 ### 🚀 Added — Triple-Engine Publishing Platform (VitePress Integration) & Luxury RTL Design System

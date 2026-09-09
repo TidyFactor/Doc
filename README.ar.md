@@ -64,10 +64,25 @@ graph LR
 
 ---
 
-## 🏛️ سجل الأوامر ومسارات التوثيق الأربعة
+## 🏛️ سجل الأوامر ومسارات التوثيق الشاملة
 
 | نية المطور وطلب المستخدم | الأمر | مسارات العمل والذاكرة المحملة | المخرجات الناتجة |
 |---|---|---|---|
+| **"تأصيل سياق التوثيق، الاستجواب أو المناظرة المعمارية"** / "brief" / "debate" | `brief` | `workflows/brief.md`<br>`memory/decision-points.md` | وثيقة `.tidyfactor/doc-brief.snapshot.yaml` و `docs/architectural_debate_synthesis.md` |
+| **"تجهيز وهيكلة مجلد التوثيق"** / "scaffold /docs" | `init` | `workflows/init-docs.md`<br>`memory/doc-tree.md` | مجلد `/docs`، ملف `docs/.doc-manifest.json`، وصفحة `docs/README.md` |
+| **"استقراء وفحص الكود والمشروع"** / "gather facts" | `collect` | `workflows/collect.md`<br>`memory/collection-sources.md` | تقرير `docs/.collected/<target>.md` (تحليل منظم بالأبعاد الخمسة) |
+| **"كتابة مرجع واجهة برمجة (API)"** / "API reference" | `generate` | `workflows/generate-api.md`<br>`memory/doc-templates.md`<br>`memory/stacks/*.md` | ملف `docs/api/<target>.md` (جداول المعاملات، القيم المرجعة، الأخطاء) |
+| **"توليد أو تحديث سجل التغييرات"** / "generate changelog" | `generate` | `workflows/generate-changelog.md`<br>`memory/doc-templates.md`<br>`memory/changelog-rules.md` | ملف `CHANGELOG.md` في جذر المشروع (معيار Keep a Changelog و SemVer) |
+| **"كتابة دليل إعداد وتشغيل"** / "setup guide" | `generate` | `workflows/generate-guide.md`<br>`memory/doc-templates.md` | ملف `docs/guides/<purpose-slug>.md` (دليل متخصص محدد الغرض) |
+| **"توليد أو تحديث README الرئيسي"** / "generate readme" | `generate` | `workflows/generate-readme.md`<br>`memory/doc-templates.md` | ملف `README.md` في جذر المشروع (نظرة عامة، التثبيت، المتغيرات) |
+| **"إضافة تعليقات برمجية للكود"** / "inline docblocks" | `generate` | `workflows/generate-inline.md`<br>`memory/stacks/*.md` | تعديل مباشر للملفات المصدرية بتعليقات PHPDoc / JSDoc / TSDoc |
+| **"نشر بوابة توثيق متكاملة"** / "محدد تفاعلي" | `site` | `memory/site-engines.md` | اختيار تفاعلي بين (`vitepress` أو `mkdocs` أو `docsify`) |
+| **"إعداد بوابة VitePress الحديثة"** / "VitePress SSG" | `vitepress` | `workflows/vitepress.md`<br>`memory/vitepress-config.md` | ملفات `docs/.vitepress/config.mjs` وتنسيقات الـ RTL الفاخرة |
+| **"إعداد بوابة MkDocs Material"** / "Python SSG" | `mkdocs` | `workflows/mkdocs.md`<br>`memory/mkdocs-config.md` | ملف `mkdocs.yml` و `docs/stylesheets/extra.css` |
+| **"تحويل التوثيقات إلى موقع Docsify"** / "deploy portal" | `docsify` | `workflows/docsify.md`<br>`memory/docsify-config.md` | ملفات `docs/index.html` و`docs/_sidebar.md` (موقع تفاعلي فوري) |
+| **"تدقيق جودة الوثائق والروابط"** / "audit docs" | `audit` | `workflows/audit.md`<br>`scripts/audit_docs.py` | تقرير تدقيق AST آلي (فحص الروابط والبيانات الحساسة وسجل التغييرات) |
+
+---|---|---|---|
 | **"تأصيل سياق التوثيق، الاستجواب أو المناظرة المعمارية"** / "brief" / "debate" | `brief` | `workflows/brief.md`<br>`memory/decision-points.md` | وثيقة `.tidyfactor/doc-brief.snapshot.yaml` و `docs/architectural_debate_synthesis.md` |
 | **"تجهيز وهيكلة مجلد التوثيق"** / "scaffold /docs" | `init` | `workflows/init-docs.md`<br>`memory/doc-tree.md` | مجلد `/docs`، ملف `docs/.doc-manifest.json`، وصفحة `docs/README.md` |
 | **"استقراء وفحص الكود والمشروع"** / "gather facts" | `collect` | `workflows/collect.md`<br>`memory/collection-sources.md` | تقرير `docs/.collected/<target>.md` (تحليل منظم بالأبعاد الخمسة) |
