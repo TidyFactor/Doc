@@ -3,6 +3,29 @@
 All notable changes to `tidyfactor-doc` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.9.0] - 2026-09-09
+
+### 🚀 Added — Architectural Decision Records (ADR), Deep Docblock Scraping, Project Mindmaps & Asset Hygiene
+- **Architectural Decision Record Generator (`references/commands/adr.md`, `references/workflows/generate-adr.md`)**:
+  - Added dedicated `adr` command with Context-Aware prompts to record technical choices, problem context, decision drivers, and consequences.
+  - Standardized on MADR (Markdown Architectural Decision Records) schema with index generation (`docs/adr/README.md`).
+- **Deep Code Parsing in Collect Workflow (`references/workflows/collect.md`)**:
+  - Enriched Step 1 with automated scraping for PHPDoc (`@param`, `@return`, `@throws`, `@deprecated`) and JSDoc/TSDoc (`@param`, `@returns`, `@typedef`, `@template`) annotations.
+  - Mapped AST interface types and class properties directly to documentation templates.
+- **Operational Memory Expansion**:
+  - Added `references/memory/adr-template.md`: Authoritative MADR record structure and master table of contents.
+  - Added `references/memory/project-mindmap.md`: Mermaid AST schemas for architecture layering, component topologies, and execution flows.
+  - Added `references/memory/naming-conventions.md`: Uniform naming conventions across PHP (PSR-1/PSR-12), TypeScript, Python, and doc slugs.
+  - Added `references/memory/tone-of-voice.md`: Non-negotiable technical writing rules (direct, action-oriented, zero marketing fluff).
+  - Added `references/memory/git-doc-sync-hook.md`: Pre-commit hook specification enforcing documentation updates alongside core code changes.
+- **Automated Asset Hygiene & Orphan Detection (`scripts/clean_orphaned_assets.py`)**:
+  - Added script to scan all `.md` files for image references, identify unreferenced assets in `assets/`, detect duplicate files via SHA-256 hashes, and calculate WebP compression savings.
+- **Unified Tooling Manifest (`manifest.json`)**:
+  - Registered `clean_orphaned_assets` tool with portable CLI patterns.
+  - Registered `adr` command in tool invocation mappings and decision gate options.
+
+---
+
 ## [1.8.0] - 2026-09-09
 
 ### 🚀 Added — Documentation Hygiene Auditor, Keep a Changelog Architecture & Asset Optimization

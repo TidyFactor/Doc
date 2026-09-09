@@ -38,7 +38,60 @@
         "isolation_recommended": false,
         "dependencies": []
       },
-      "invoked_by_commands": ["generate", "site", "vitepress", "mkdocs", "docsify", "audit"]
+      "invoked_by_commands": ["generate", "site", "vitepress", "mkdocs", "docsify", "audit", "adr"]
+    },
+    {
+      "name": "clean_orphaned_assets",
+      "description": "Scans markdown files for image references, identifies unreferenced orphan assets in assets/, detects duplicate assets via SHA-256 hashing, and evaluates WebP compression savings.",
+      "entrypoint": {
+        "runtime": "python3",
+        "script": "scripts/clean_orphaned_assets.py"
+      },
+      "invocation": {
+        "cli_pattern": "{runtime} {skill_root}/{script} {repo_root} {flags}",
+        "args": [
+          {
+            "name": "repo_root",
+            "type": "path",
+            "required": false,
+            "default": ".",
+            "description": "Root directory of repository or skill"
+          },
+          {
+            "name": "assets_dir",
+            "type": "string",
+            "required": false,
+            "default": "assets",
+            "flag": "--assets-dir",
+            "description": "Relative path to assets folder"
+          },
+          {
+            "name": "delete_orphans",
+            "type": "boolean",
+            "required": false,
+            "default": false,
+            "flag": "--delete-orphans",
+            "description": "Delete unreferenced assets on disk"
+          },
+          {
+            "name": "json",
+            "type": "boolean",
+            "required": false,
+            "default": false,
+            "flag": "--json",
+            "description": "Output pure JSON report"
+          }
+        ]
+      },
+      "output": {
+        "format": "json",
+        "channel": "stdout"
+      },
+      "runtime_requirements": {
+        "isolation_recommended": false,
+        "dependencies": []
+      },
+      "invoked_by_commands": ["audit", "site"]
     }
   ],
   "decision_gates": [

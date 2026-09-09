@@ -25,7 +25,11 @@ $$\text{Unknowns} = \text{Required Decisions} - (\text{Discovered Facts} \cup \t
 
 Run all five collection dimensions from `memory/collection-sources.md` against the target:
 
-1. **Code parsing**: Extract existing docblocks/comments, function/method/class signatures, exported types, and public surface area directly from source. Flag anything already documented inline.
+1. **Code parsing & Docblock Scraping**:
+   - **For PHP**: Scan for standard PHPDoc annotations (`@param [type] $var [description]`, `@return [type]`, `@throws [exception]`, `@deprecated`, `@var`). Extract class properties, public method signatures, interface implementations, and parameter typehints (`string`, `int`, `array`, `?callable`).
+   - **For JavaScript / TypeScript**: Scan for JSDoc / TSDoc annotations (`@param {type} name description`, `@returns {type}`, `@typedef`, `@template`, `@async`, `@example`). For TypeScript, extract exported interfaces, types, enums, and React/Vue component prop types directly from AST definitions.
+   - Cross-reference with `memory/stacks/php.md` or `memory/stacks/js-ts.md` to ensure exact standard compliance.
+   - Flag undocumented public surface area or stale docblocks where signature types diverge from comments.
 2. **Commit history**: Read `git log` and available PR descriptions for target files. Pull out *why* behind non-obvious code (tradeoffs, rationale, bug fixes).
 3. **Runtime & environment**: Enumerate required environment variables, config files, software dependencies (with version constraints), and resource limits. **MANDATORY**: Scrub and redact any actual secrets, production server IPs, database passwords, or private API tokens—record only variable names and generic placeholders.
 4. **User persona tracing**: Identify who reads docs for this target (API consumers, internal maintainers, end-users) and map facts accordingly.

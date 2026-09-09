@@ -1,6 +1,6 @@
 ---
 name: tidyfactor-doc
-description: "Code documentation builder and triple-engine publishing platform (VitePress, MkDocs Material, and Docsify). Generates API references, READMEs, changelogs, inline docblocks, and guides. Trigger on commands 'brief', 'init', 'collect', 'generate', 'site', 'vitepress', 'mkdocs', 'docsify', 'audit', or requests like 'document this codebase', 'create changelog', 'audit docs', or 'set up VitePress'."
+description: "Code documentation builder, ADR generator, and triple-engine publishing platform (VitePress, MkDocs Material, and Docsify). Generates API references, READMEs, changelogs, ADRs, inline docblocks, and guides. Trigger on commands 'brief', 'init', 'collect', 'generate', 'adr', 'site', 'vitepress', 'mkdocs', 'docsify', 'audit', or requests like 'document this codebase', 'generate ADR', 'create changelog', 'audit docs', or 'set up VitePress'."
 ---
 # TidyFactor Doc
 
@@ -13,6 +13,7 @@ A command dispatcher. This file does not do the work itself — it routes to the
 | "Establish documentation context / interview / debate codebase architecture" / "brief" / "debate" | `references/commands/brief.md` | `workflows/brief.md` + `memory/decision-points.md` |
 | "Set up docs for this project" / "scaffold /docs" | `references/commands/init.md` | `workflows/init-docs.md` + `memory/doc-tree.md` |
 | "Document this codebase" / "gather what's needed to document X" | `references/commands/collect.md` | `workflows/collect.md` + `memory/collection-sources.md` |
+| "Record architectural decision / generate ADR" / "adr" | `references/commands/adr.md` | `workflows/generate-adr.md` + `memory/adr-template.md` + `memory/tone-of-voice.md` |
 | "Write API docs" / "generate a README" / "create CHANGELOG" / "add inline comments" / "write a guide" | `references/commands/generate.md` | `workflows/generate-api.md` (or `generate-readme.md` / `generate-changelog.md` / `generate-inline.md` / `generate-guide.md`) + `memory/doc-templates.md` + `memory/changelog-rules.md` + matching `memory/stacks/*.md` |
 | "Publish documentation portal" / "turn /docs into a doc site" (Interactive) | `references/commands/site.md` | `memory/site-engines.md` + interactive selection (`workflows/vitepress.md`, `workflows/mkdocs.md`, or `workflows/docsify.md`) |
 | "Set up VitePress" / "build modern Vue-powered doc portal" | `references/commands/vitepress.md` | `workflows/vitepress.md` + `memory/vitepress-config.md` |
@@ -44,6 +45,7 @@ Read only the command file that matches the request. Do not read all commands si
 
 - **Execution Tools**:
   - `audit_docs` (`scripts/audit_docs.py`): Sub-second AST scanner for documentation under `/docs`, root `README.md`, and `CHANGELOG.md`. Audits credential leaks, machine-specific paths, broken relative links, and Keep a Changelog formatting.
+  - `clean_orphaned_assets` (`scripts/clean_orphaned_assets.py`): Scans markdown documents for image references, detects unreferenced orphan assets in `assets/`, detects duplicate assets via SHA-256 hashing, and reports WebP compression opportunities.
 - **Contract & Schema**: Portably declared in `manifest.json` with `"skill_root_anchor": "self"`.
 - **Invocability**: Executable via direct CLI or through `tidyfactor-brain` MCP `run_skill_tool`.
 
@@ -54,4 +56,4 @@ Read only the command file that matches the request. Do not read all commands si
 
 ## Sequencing
 
-`brief` (optional, architectural alignment & debate) → `init` → `collect` → `generate` (repeatable, once per doc target) → `site` / `vitepress` / `mkdocs` / `docsify` → `audit` (quality & link verification before release).
+`brief` (optional, architectural alignment & debate) → `init` → `collect` → `adr` (record technical decisions) → `generate` (repeatable, once per doc target) → `site` / `vitepress` / `mkdocs` / `docsify` → `audit` (quality, links & orphan verification before release).

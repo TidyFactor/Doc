@@ -1,7 +1,7 @@
 <div align="center">
 
-# 📚 TidyFactor Doc `v1.8.0`
-### Codebase Interview, API Generator, Changelog Architect, Link Auditor & Triple-Engine Publishing Platform (VitePress, MkDocs Material & Docsify)
+# 📚 TidyFactor Doc `v1.9.0`
+### Codebase Interview, API Generator, ADR Architect, Link Auditor & Triple-Engine Publishing Platform (VitePress, MkDocs Material & Docsify)
 
 **Building accurate, maintainable, secure, and browsable documentation for the era of Human-Agent Collaboration.**
 
@@ -74,6 +74,7 @@ graph LR
 | **"Document this codebase"** / "gather facts for module X" | `collect` | `workflows/collect.md`<br>`memory/collection-sources.md` | `docs/.collected/<target>.md` (5-dimensional structured analysis) |
 | **"Write API reference"** / "generate docs for endpoints" | `generate` | `workflows/generate-api.md`<br>`memory/doc-templates.md`<br>`memory/stacks/*.md` | `docs/api/<target>.md` (parameter tables, returns, errors, examples) |
 | **"Generate CHANGELOG"** / "update release history" | `generate` | `workflows/generate-changelog.md`<br>`memory/doc-templates.md`<br>`memory/changelog-rules.md` | Root `CHANGELOG.md` (Keep a Changelog v1.1.0, SemVer 2.0.0) |
+| **"Record architectural decision"** / "generate ADR" | `adr` | `workflows/generate-adr.md`<br>`memory/adr-template.md`<br>`memory/tone-of-voice.md` | `docs/adr/NNNN-<slug>.md` & `docs/adr/README.md` index |
 | **"Write setup guide"** / "create architecture runbook" | `generate` | `workflows/generate-guide.md`<br>`memory/doc-templates.md` | `docs/guides/<purpose-slug>.md` (focused, single-purpose guide) |
 | **"Generate project README"** / "update root README" | `generate` | `workflows/generate-readme.md`<br>`memory/doc-templates.md` | Root `README.md` (overview, install, env vars, quick start) |
 | **"Add inline docblocks"** / "document public functions" | `generate` | `workflows/generate-inline.md`<br>`memory/stacks/*.md` | Direct source code edit with PHPDoc / JSDoc / TSDoc comments |

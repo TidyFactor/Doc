@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 TidyFactor Doc `v1.6.0`
+# 📚 TidyFactor Doc `v1.9.0`
 ### محرك استقراء الأكواد البرمجية، وتوليد مراجع الـ API، ومنصة النشر المزدوجة (MkDocs Material و Docsify)
 
 **بناء توثيقات فنية دقيقة، مستدامة، آمنة، وقابلة للتصفح لعصر التعاون بين المطورين ووكلاء الذكاء الاصطناعي.**
@@ -81,16 +81,7 @@ graph LR
 | **"إعداد بوابة MkDocs Material"** / "Python SSG" | `mkdocs` | `workflows/mkdocs.md`<br>`memory/mkdocs-config.md` | ملف `mkdocs.yml` و `docs/stylesheets/extra.css` |
 | **"تحويل التوثيقات إلى موقع Docsify"** / "deploy portal" | `docsify` | `workflows/docsify.md`<br>`memory/docsify-config.md` | ملفات `docs/index.html` و`docs/_sidebar.md` (موقع تفاعلي فوري) |
 | **"تدقيق جودة الوثائق والروابط"** / "audit docs" | `audit` | `workflows/audit.md`<br>`scripts/audit_docs.py` | تقرير تدقيق AST آلي (فحص الروابط والبيانات الحساسة وسجل التغييرات) |
-
----|---|---|---|
-| **"تأصيل سياق التوثيق، الاستجواب أو المناظرة المعمارية"** / "brief" / "debate" | `brief` | `workflows/brief.md`<br>`memory/decision-points.md` | وثيقة `.tidyfactor/doc-brief.snapshot.yaml` و `docs/architectural_debate_synthesis.md` |
-| **"تجهيز وهيكلة مجلد التوثيق"** / "scaffold /docs" | `init` | `workflows/init-docs.md`<br>`memory/doc-tree.md` | مجلد `/docs`، ملف `docs/.doc-manifest.json`، وصفحة `docs/README.md` |
-| **"استقراء وفحص الكود والمشروع"** / "gather facts" | `collect` | `workflows/collect.md`<br>`memory/collection-sources.md` | تقرير `docs/.collected/<target>.md` (تحليل منظم بالأبعاد الخمسة) |
-| **"كتابة مرجع واجهة برمجة (API)"** / "API reference" | `generate` | `workflows/generate-api.md`<br>`memory/doc-templates.md`<br>`memory/stacks/*.md` | ملف `docs/api/<target>.md` (جداول المعاملات، القيم المرجعة، الأخطاء) |
-| **"كتابة دليل إعداد وتشغيل"** / "setup guide" | `generate` | `workflows/generate-guide.md`<br>`memory/doc-templates.md` | ملف `docs/guides/<purpose-slug>.md` (دليل متخصص محدد الغرض) |
-| **"توليد أو تحديث README الرئيسي"** / "generate readme" | `generate` | `workflows/generate-readme.md`<br>`memory/doc-templates.md` | ملف `README.md` في جذر المشروع (نظرة عامة، التثبيت، المتغيرات) |
-| **"إضافة تعليقات برمجية للكود"** / "inline docblocks" | `generate` | `workflows/generate-inline.md`<br>`memory/stacks/*.md` | تعديل مباشر للملفات المصدرية بتعليقات PHPDoc / JSDoc / TSDoc |
-| **"تحويل التوثيقات إلى موقع Docsify"** / "deploy portal" | `docsify` | `workflows/docsify.md`<br>`memory/docsify-config.md` | ملفات `docs/index.html` و`docs/_sidebar.md` (موقع تفاعلي متكامل) |
+| **"توثيق قرار معماري"** / "generate ADR" | `adr` | `workflows/generate-adr.md`<br>`memory/adr-template.md`<br>`memory/tone-of-voice.md` | ملف `docs/adr/NNNN-<slug>.md` وفهرس `docs/adr/README.md` |
 
 ---
 
