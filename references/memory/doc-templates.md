@@ -1,4 +1,4 @@
-<!-- last-verified: 2026-09-02 -->
+<!-- last-verified: 2026-09-09 -->
 # Memory: doc-templates
 
 Shapes for each doc type `generate` produces. Templates, not prose — fill in from `collect` findings.
@@ -72,3 +72,31 @@ Full reference: [`/docs`](./docs/README.md)
 ## Related
 <links to other guides or API docs using relative paths, e.g. [API Overview](../api/project.md)>
 ```
+
+## CHANGELOG (project root `CHANGELOG.md`)
+
+```markdown
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### 🚀 Added
+- <new feature description>
+
+### 🐛 Fixed
+- <bug fix description>
+
+## [1.0.0] - 2026-09-09
+
+### 🚀 Added
+- Initial production release.
+- <feature list>
+
+---
+```
+

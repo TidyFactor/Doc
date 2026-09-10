@@ -1,6 +1,6 @@
 <div align="center" dir="rtl">
 
-# tidyfactor-doc `v1.3.0`
+# tidyfactor-doc `v1.6.0`
 
 **موتور ساخت مستندات کد و انتشار دوگانه پورتال‌های مستندات (MkDocs و Docsify) برای ایجنت‌های هوش مصنوعی**
 

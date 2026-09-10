@@ -35,7 +35,11 @@ BANNED_URL_PATTERNS = [
     (r"[a-zA-Z]:\\wamp64\\www\\", "Banned internal workstation local path"),
 ]
 
-def audit_doc_file(file_path: Path) -> list:
+# Standard Keep a Changelog v1.1.0 sections
+VALID_CHANGELOG_SECTIONS = {"Added", "Changed", "Deprecated", "Removed", "Fixed", "Security"}
+CHANGELOG_VERSION_PATTERN = re.compile(r"^##\s+\[(?:\d+\.\d+\.\d+|Unreleased)\](?:\s+-\s+\d{4}-\d{2}-\d{2})?$")
+
+def audit_doc_file(file_path: Path, check_links: bool = True) -> list:
     issues = []
     try:
         content = file_path.read_text(encoding="utf-8", errors="replace")
@@ -43,6 +47,7 @@ def audit_doc_file(file_path: Path) -> list:
         return [{"file": str(file_path), "severity": "high", "type": "read_error", "message": str(e)}]
 
     lines = content.splitlines()
+    is_changelog = file_path.name.lower().startswith("changelog")
 
     for idx, line in enumerate(lines, start=1):
         # 1. Check for sensitive data leaks
@@ -61,13 +66,62 @@ def audit_doc_file(file_path: Path) -> list:
         # 2. Check for banned absolute workstation paths & file:/// URLs
         for pattern, desc in BANNED_URL_PATTERNS:
             if re.search(pattern, line):
-                issues.append({
-                    "file": str(file_path),
-                    "line": idx,
-                    "severity": "high",
-                    "type": "banned_absolute_path",
-                    "message": f"Banned workstation-specific path detected: {desc}. Use clean relative links or public URLs."
-                })
+                # Ignore lines explaining the ban, rule definitions, or dummy placeholders
+                if not re.search(r"(?i)(prohibit|banned|prevent|never|don't|no\s+|avoid|clean relative|mandate|your_|example|redacted|\.\.\.|placeholder|<.+>|dummy)", line):
+                    issues.append({
+                        "file": str(file_path),
+                        "line": idx,
+                        "severity": "high",
+                        "type": "banned_absolute_path",
+                        "message": f"Banned workstation-specific path detected: {desc}. Use clean relative links or public URLs."
+                    })
+
+        # 3. Check relative link integrity (strip code spans first to avoid flagging examples)
+        if check_links:
+            # Remove inline code backticks before checking active markdown links
+            line_no_code = re.sub(r"`[^`]*`", "", line)
+            # Match markdown links: [text](path)
+            for match in re.finditer(r"\[(?:[^\]]*)\]\(([^)]+)\)", line_no_code):
+                target_url = match.group(1).strip()
+                # Skip external, anchor-only, mailto, tel
+                if re.match(r"^(?:https?://|mailto:|tel:|#)", target_url, re.IGNORECASE):
+                    continue
+                # Strip anchor or query params
+                clean_target = target_url.split("#")[0].split("?")[0].strip()
+                if not clean_target:
+                    continue
+                # Resolve relative path
+                resolved = (file_path.parent / clean_target).resolve()
+                if not resolved.exists():
+                    issues.append({
+                        "file": str(file_path),
+                        "line": idx,
+                        "severity": "high",
+                        "type": "broken_relative_link",
+                        "message": f"Broken relative link '{target_url}' — target '{clean_target}' does not exist on disk."
+                    })
+
+    # 4. CHANGELOG.md specific structure validation
+    if is_changelog:
+        version_headers = [l.strip() for l in lines if l.startswith("## ")]
+        if not version_headers:
+            issues.append({
+                "file": str(file_path),
+                "line": 1,
+                "severity": "high",
+                "type": "invalid_changelog_format",
+                "message": "CHANGELOG.md lacks standard release headers (expected format: '## [x.y.z] - YYYY-MM-DD' or '## [Unreleased]')."
+            })
+        else:
+            for vh in version_headers:
+                if not CHANGELOG_VERSION_PATTERN.match(vh):
+                    issues.append({
+                        "file": str(file_path),
+                        "line": 1,
+                        "severity": "low",
+                        "type": "non_standard_version_header",
+                        "message": f"Changelog version header '{vh}' does not strictly match Keep a Changelog SemVer pattern '## [X.Y.Z] - YYYY-MM-DD'."
+                    })
 
     return issues
 
