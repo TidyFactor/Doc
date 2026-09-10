@@ -1,6 +1,6 @@
 ---
 name: tidyfactor-doc
-description: "Code documentation builder, ADR generator, and triple-engine publishing platform (VitePress, MkDocs Material, and Docsify). Generates API references, READMEs, changelogs, ADRs, inline docblocks, and guides. Trigger on commands 'brief', 'init', 'collect', 'generate', 'adr', 'site', 'vitepress', 'mkdocs', 'docsify', 'audit', or requests like 'document this codebase', 'generate ADR', 'create changelog', 'audit docs', or 'set up VitePress'."
+description: "Code documentation builder, ADR generator, llms.txt standard generator, and triple-engine publishing platform (VitePress, MkDocs Material, and Docsify). Generates API references, READMEs, changelogs, ADRs, llms.txt, inline docblocks, and guides. Trigger on commands 'brief', 'init', 'collect', 'generate', 'adr', 'site', 'vitepress', 'mkdocs', 'docsify', 'audit', 'llms', or requests like 'document this codebase', 'generate ADR', 'create changelog', 'audit docs', 'generate llms.txt', or 'set up VitePress'."
 ---
 # TidyFactor Doc
 
@@ -20,6 +20,7 @@ A command dispatcher. This file does not do the work itself — it routes to the
 | "Set up MkDocs Material" / "compile static documentation" | `references/commands/mkdocs.md` | `workflows/mkdocs.md` + `memory/mkdocs-config.md` |
 | "Set up Docsify" / "build lightweight zero-build doc SPA" | `references/commands/docsify.md` | `workflows/docsify.md` + `memory/docsify-config.md` |
 | "Audit docs quality / scan credential leaks / verify links & changelog" / "audit" | `references/commands/audit.md` | `workflows/audit.md` + `scripts/audit_docs.py` |
+| "Generate llms.txt & llms-full.txt / AI agent documentation index" / "llms" | `references/commands/llms.md` | `workflows/generate-llmstxt.md` + `memory/llmstxt-spec.md` |
 
 Read only the command file that matches the request. Do not read all commands simultaneously.
 
@@ -56,4 +57,4 @@ Read only the command file that matches the request. Do not read all commands si
 
 ## Sequencing
 
-`brief` (optional, architectural alignment & debate) → `init` → `collect` → `adr` (record technical decisions) → `generate` (repeatable, once per doc target) → `site` / `vitepress` / `mkdocs` / `docsify` → `audit` (quality, links & orphan verification before release).
+`brief` (optional, architectural alignment & debate) → `init` → `collect` → `adr` (record technical decisions) → `generate` (repeatable, once per doc target) → `site` / `vitepress` / `mkdocs` / `docsify` → `llms` (AI agent indexing) → `audit` (quality, links & orphan verification before release).

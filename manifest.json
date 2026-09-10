@@ -38,7 +38,7 @@
         "isolation_recommended": false,
         "dependencies": []
       },
-      "invoked_by_commands": ["generate", "site", "vitepress", "mkdocs", "docsify", "audit", "adr"]
+      "invoked_by_commands": ["generate", "site", "vitepress", "mkdocs", "docsify", "audit", "adr", "llms"]
     },
     {
       "name": "clean_orphaned_assets",

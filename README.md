@@ -1,7 +1,7 @@
 <div align="center">
 
-# 📚 TidyFactor Doc `v1.9.0`
-### Codebase Interview, API Generator, ADR Architect, Link Auditor & Triple-Engine Publishing Platform (VitePress, MkDocs Material & Docsify)
+# 📚 TidyFactor Doc `v1.10.0`
+### Codebase Interview, API Generator, ADR Architect, llms.txt Standard, Link Auditor & Triple-Engine Publishing Platform (VitePress, MkDocs Material & Docsify)
 
 **Building accurate, maintainable, secure, and browsable documentation for the era of Human-Agent Collaboration.**
 

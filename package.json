@@ -1,7 +1,7 @@
 {
   "name": "@tidyfactor/doc",
-  "version": "1.9.0",
-  "description": "TidyFactor Doc — Code Documentation Builder, ADR Architect, Link Auditor & Triple-Engine Publishing Platform (VitePress, MkDocs Material & Docsify) for AI Coding Agents",
+  "version": "1.10.0",
+  "description": "TidyFactor Doc — Code Documentation Builder, ADR Architect, llms.txt Standard Generator, Link Auditor & Triple-Engine Publishing Platform (VitePress, MkDocs Material & Docsify) for AI Coding Agents",
   "main": "SKILL.md",
   "bin": {
     "tidyfactor-doc": "bin/add-skill.js",

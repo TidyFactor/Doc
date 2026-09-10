@@ -3,6 +3,20 @@
 All notable changes to `tidyfactor-doc` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.10.0] - 2026-09-10
+
+### 🚀 Added — llms.txt & llms-full.txt Standard Generator for AI Agents
+- **llms.txt Generator Command & Workflow (`references/commands/llms.md`, `references/workflows/generate-llmstxt.md`)**:
+  - Added dedicated `llms` command to generate and maintain `/llms.txt` (curated index) and `/llms-full.txt` (consolidated plain markdown bundle) conforming to the community standard ([llmstxt.org](https://llmstxt.org/)).
+  - Automated crawling of `/docs`, single `# H1` requirement, blockquote summary generation, and annotated markdown link lists.
+  - Injected discovery `<link rel="alternate" type="text/markdown" href="/llms.txt" ...>` headers across VitePress, MkDocs Material, and Docsify engines.
+- **Operational Memory Specification (`references/memory/llmstxt-spec.md`)**:
+  - Codified the canonical specification for `llms.txt` and `llms-full.txt` syntax, sectioning (`## H2`), annotated descriptions, and HTTP discovery headers.
+- **Unified Tooling Manifest (`manifest.json`)**:
+  - Integrated `llms` command into `audit_docs` and documentation lifecycle workflows.
+
+---
+
 ## [1.9.0] - 2026-09-09
 
 ### 🚀 Added — Architectural Decision Records (ADR), Deep Docblock Scraping, Project Mindmaps & Asset Hygiene
