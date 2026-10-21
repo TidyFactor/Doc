@@ -1,5 +1,7 @@
 # Memory: stacks/php
 
+<!-- last-verified: 2026-09-08 -->
+
 Documentation conventions for PHP targets. Applies whenever the target's manifest is `composer.json` or files are `.php`.
 
 ## Inline comment format — PHPDoc

@@ -1,5 +1,7 @@
 # Memory: stacks/js-ts
 
+<!-- last-verified: 2026-09-08 -->
+
 Documentation conventions for JavaScript and TypeScript targets. Applies whenever the target's manifest is `package.json` and files are `.js`/`.mjs` (JS) or `.ts`/`.tsx` (TS). The two share JSDoc-style block syntax but differ in what needs restating.
 
 ## JavaScript — JSDoc (types belong in the comment, since the code itself is untyped)

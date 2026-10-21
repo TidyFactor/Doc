@@ -1,6 +1,6 @@
 <div align="center">
 
-# tidyfactor-doc `v1.3.0`
+# tidyfactor-doc `v1.6.0`
 
 **Codebase Documentation Builder & Dual-Engine Publishing Platform (MkDocs & Docsify) für KI-Coding-Agenten**
 

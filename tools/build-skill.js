@@ -28,6 +28,7 @@ const ROOT_COPIES = [
   "tools",
   "bin",
   "brand.json",
+  "brand.yaml",
   ".tidyfactor",
   "package.json",
   "AGENTS.md",

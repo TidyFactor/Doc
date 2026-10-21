@@ -1,5 +1,7 @@
 # Memory: stacks/react-vue-next
 
+<!-- last-verified: 2026-09-08 -->
+
 Component-level documentation conventions, layered on top of `js-ts.md` (still use JSDoc/TSDoc block syntax — this file adds what's specific to components, pages, and routes).
 
 ## React — props, not just function signature

@@ -1,6 +1,6 @@
 <div align="center">
 
-# tidyfactor-doc `v1.3.0`
+# tidyfactor-doc `v1.6.0`
 
 **面向 AI 智能体的代码库文档自动生成与双引擎发布平台 (MkDocs & Docsify)**
 

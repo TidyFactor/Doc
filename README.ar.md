@@ -1,7 +1,7 @@
 <div align="center">
 
-# 📚 TidyFactor Doc `v1.3.0`
-### محرك استقراء الأكواد البرمجية، وتوليد مراجع الـ API، ومنصة النشر المزدوجة (MkDocs Material و Docsify)
+# 📚 TidyFactor Doc `v1.10.0`
+### محرك استقراء الأكواد البرمجية، وتوليد مراجع الـ API، ومعيار llms.txt، ومنصة النشر الثلاثية (VitePress و MkDocs Material و Docsify)
 
 **بناء توثيقات فنية دقيقة، مستدامة، آمنة، وقابلة للتصفح لعصر التعاون بين المطورين ووكلاء الذكاء الاصطناعي.**
 
@@ -12,7 +12,9 @@
 [![روابط نظيفة ونسبية](https://img.shields.io/badge/Links-Clean%20%26%20Relative-cyan.svg?style=for-the-badge)](#-معايير-الروابط-النسبية-والتصفح-النظيف)
 [![توافق شامل مع وكلاء الذكاء الاصطناعي](https://img.shields.io/badge/AI%20Agents-Universal%20Compatibility-4285F4.svg?style=for-the-badge)](README.md)
 
-[🌐 الموقع الرسمي](https://tidyfactor.com/) • [📚 مركز التوثيق](https://tidyfactor.com/documentation) • [🤝 الشريك (الوكالة)](https://alwkala.com/) • [⚡ سجل الأوامر](#-سجل-الأوامر-ومسارات-التوثيق-الأربعة) • [🛡️ الضمانات الأمنية](#-ضمانات-الأمان-وحجب-البيانات-الحساسة) • [📖 النسخة الإنجليزية (English)](README.md)
+[ English ](README.md) • [ العربية ](README.ar.md) • [ فارسی ](README.fa.md) • [ Español ](README.es.md) • [ Português ](README.pt.md) • [ 简体中文 ](README.zh.md) • [ Deutsch ](README.de.md) • [ Français ](README.fr.md)
+
+[🌐 الموقع الرسمي](https://tidyfactor.com/) • [📚 مركز التوثيق](https://tidyfactor.com/documentation) • [🤝 الشريك (الوكالة)](https://alwkala.com/) • [⚡ سجل الأوامر](#-سجل-الأوامر-ومسارات-التوثيق-الأربعة) • [🛡️ الضمانات الأمنية](#-ضمانات-الأمان-وحجب-البيانات-الحساسة)
 
 <br/><br/>
 
@@ -62,17 +64,24 @@ graph LR
 
 ---
 
-## 🏛️ سجل الأوامر ومسارات التوثيق الأربعة
+## 🏛️ سجل الأوامر ومسارات التوثيق الشاملة
 
 | نية المطور وطلب المستخدم | الأمر | مسارات العمل والذاكرة المحملة | المخرجات الناتجة |
 |---|---|---|---|
+| **"تأصيل سياق التوثيق، الاستجواب أو المناظرة المعمارية"** / "brief" / "debate" | `brief` | `workflows/brief.md`<br>`memory/decision-points.md` | وثيقة `.tidyfactor/doc-brief.snapshot.yaml` و `docs/architectural_debate_synthesis.md` |
 | **"تجهيز وهيكلة مجلد التوثيق"** / "scaffold /docs" | `init` | `workflows/init-docs.md`<br>`memory/doc-tree.md` | مجلد `/docs`، ملف `docs/.doc-manifest.json`، وصفحة `docs/README.md` |
 | **"استقراء وفحص الكود والمشروع"** / "gather facts" | `collect` | `workflows/collect.md`<br>`memory/collection-sources.md` | تقرير `docs/.collected/<target>.md` (تحليل منظم بالأبعاد الخمسة) |
 | **"كتابة مرجع واجهة برمجة (API)"** / "API reference" | `generate` | `workflows/generate-api.md`<br>`memory/doc-templates.md`<br>`memory/stacks/*.md` | ملف `docs/api/<target>.md` (جداول المعاملات، القيم المرجعة، الأخطاء) |
+| **"توليد أو تحديث سجل التغييرات"** / "generate changelog" | `generate` | `workflows/generate-changelog.md`<br>`memory/doc-templates.md`<br>`memory/changelog-rules.md` | ملف `CHANGELOG.md` في جذر المشروع (معيار Keep a Changelog و SemVer) |
 | **"كتابة دليل إعداد وتشغيل"** / "setup guide" | `generate` | `workflows/generate-guide.md`<br>`memory/doc-templates.md` | ملف `docs/guides/<purpose-slug>.md` (دليل متخصص محدد الغرض) |
 | **"توليد أو تحديث README الرئيسي"** / "generate readme" | `generate` | `workflows/generate-readme.md`<br>`memory/doc-templates.md` | ملف `README.md` في جذر المشروع (نظرة عامة، التثبيت، المتغيرات) |
 | **"إضافة تعليقات برمجية للكود"** / "inline docblocks" | `generate` | `workflows/generate-inline.md`<br>`memory/stacks/*.md` | تعديل مباشر للملفات المصدرية بتعليقات PHPDoc / JSDoc / TSDoc |
-| **"تحويل التوثيقات إلى موقع Docsify"** / "deploy portal" | `docsify` | `workflows/docsify.md`<br>`memory/docsify-config.md` | ملفات `docs/index.html` و`docs/_sidebar.md` (موقع تفاعلي متكامل) |
+| **"نشر بوابة توثيق متكاملة"** / "محدد تفاعلي" | `site` | `memory/site-engines.md` | اختيار تفاعلي بين (`vitepress` أو `mkdocs` أو `docsify`) |
+| **"إعداد بوابة VitePress الحديثة"** / "VitePress SSG" | `vitepress` | `workflows/vitepress.md`<br>`memory/vitepress-config.md` | ملفات `docs/.vitepress/config.mjs` وتنسيقات الـ RTL الفاخرة |
+| **"إعداد بوابة MkDocs Material"** / "Python SSG" | `mkdocs` | `workflows/mkdocs.md`<br>`memory/mkdocs-config.md` | ملف `mkdocs.yml` و `docs/stylesheets/extra.css` |
+| **"تحويل التوثيقات إلى موقع Docsify"** / "deploy portal" | `docsify` | `workflows/docsify.md`<br>`memory/docsify-config.md` | ملفات `docs/index.html` و`docs/_sidebar.md` (موقع تفاعلي فوري) |
+| **"تدقيق جودة الوثائق والروابط"** / "audit docs" | `audit` | `workflows/audit.md`<br>`scripts/audit_docs.py` | تقرير تدقيق AST آلي (فحص الروابط والبيانات الحساسة وسجل التغييرات) |
+| **"توثيق قرار معماري"** / "generate ADR" | `adr` | `workflows/generate-adr.md`<br>`memory/adr-template.md`<br>`memory/tone-of-voice.md` | ملف `docs/adr/NNNN-<slug>.md` وفهرس `docs/adr/README.md` |
 
 ---
 

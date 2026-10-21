@@ -1,6 +1,6 @@
 <div align="center">
 
-# tidyfactor-doc `v1.3.0`
+# tidyfactor-doc `v1.6.0`
 
 **Générateur de Documentation de Codebase et Plateforme de Publication Double (MkDocs & Docsify) pour Agents d'IA**
 
